@@ -1,6 +1,9 @@
 Command line for Fst2List.ulp
 Fst2List -l 300 -a s -p s .\Sentence.fst2
 
+Command line for cassys.ulp
+Cassys -a \cassysTestOk\Alphabet.txt --file=\cassysTestOk\80jours.snt -t \transducer_list_rel.txt -r \cassysTestOk\graph\ --negation_operator=tilde
+
 Command line for input_var_in_morpho_mode.ulp
 Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/French/Graphs/var_morpho.fst2 -a/home/paumier/unitex/French/Alphabet.txt -L -M -n200 --morpho=/home/paumier/Unitex2.1beta/French/Dela/dela-fr-public.bin -b -Y
 
