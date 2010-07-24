@@ -7,6 +7,15 @@ Fst2List -l 100 -a s -p s \Sentence.fst2
 Command line for cassys.ulp
 Cassys -a \cassysTestOk\Alphabet.txt --file=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde
 
+Command line for checkdic.ulp
+CheckDic --skip_path -s \motsGramf-.dic
+
+Command line for compress.ulp
+Compress .\motsGramf-.dic
+
+Command line for evamb.ulp
+Evamb -o text_out.txt .\text.tfst
+
 Command line for input_var_in_morpho_mode.ulp
 Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/French/Graphs/var_morpho.fst2 -a/home/paumier/unitex/French/Alphabet.txt -L -M -n200 --morpho=/home/paumier/Unitex2.1beta/French/Dela/dela-fr-public.bin -b -Y
 
@@ -18,6 +27,9 @@ Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corp
 
 Command line for output_variables_tfst.ulp
 LocateTfst -t/home/paumier/unitex/English/Corpus/ivanhoe_snt/text.tfst /home/paumier/unitex/English/Graphs/pronouns.fst2 -a/home/paumier/unitex/English/Alphabet.txt -L -M -n200 -b -Y
+
+Command line for uncompress.ulp
+Uncompress .\motsGramf-.bin
 
 Command line for unitex_log_00000002.ulp
 Normalize "/My Unitex/French/Corpus/80jours.txt"
@@ -270,4 +282,7 @@ Tfst2Grf "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst" -s1 "-fT
 
 Command line for unitex_log_00000087.ulp
 Table2Grf "/BOULOT/Recherche/Tables & graphes patrons/SuperTable.txt" "-r/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/super-N0VN1(P).grf" "-o/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/all.grf" "-s/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/@A-N0VN1(P).grf"
+
+Command line for untokenize.ulp
+Untokenize .\test.txt -d test_snt\
 
