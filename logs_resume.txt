@@ -295,6 +295,9 @@ Tfst2Grf "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst" -s1 "-fT
 Command line for unitex_log_00000087.ulp
 Table2Grf "/BOULOT/Recherche/Tables & graphes patrons/SuperTable.txt" "-r/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/super-N0VN1(P).grf" "-o/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/all.grf" "-s/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/@A-N0VN1(P).grf"
 
+Command line for unitex_log_concord_modify.ulp
+Concord \home\paumier\unitex\French\Corpus\test_snt\concord.ind -m\home\paumier\unitex\French\Corpus\test2.txt
+
 Command line for untokenize.ulp
 Untokenize .\test.txt -d test_snt\
 
