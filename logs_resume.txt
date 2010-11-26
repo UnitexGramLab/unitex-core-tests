@@ -1,35 +1,35 @@
-Command line for Fst2List.ulp
-Fst2List -l 300 -a s -p s .\Sentence.fst2
-
-Command line for Fst2List_max_line.ulp
-Fst2List -l 100 -a s -p s \Sentence.fst2
-
 Command line for cassys.ulp
-Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde
+
 
 Command line for checkdic.ulp
-CheckDic --skip_path -s \motsGramf-.dic
+CheckDic --skip_path -s /motsGramf-.dic
 
 Command line for compress.ulp
 Compress /motsGramf-.dic
 
 Command line for evamb.ulp
-Evamb -o text_out.txt .\text.tfst
+Evamb -o text_out.txt /text.tfst
+
+Command line for Fst2List_max_line.ulp
+Fst2List -l 100 -a s -p s /Sentence.fst2
+
+Command line for Fst2List.ulp
+Fst2List -l 300 -a s -p s /Sentence.fst2
 
 Command line for input_var_in_morpho_mode.ulp
 Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/French/Graphs/var_morpho.fst2 -a/home/paumier/unitex/French/Alphabet.txt -L -M -n200 --morpho=/home/paumier/Unitex2.1beta/French/Dela/dela-fr-public.bin -b -Y
 
 Command line for korean_dico.ulp
-Dico -t\home\paumier\unitex\KoreanJeeSun\Corpus\test.snt -a\home\paumier\unitex\KoreanJeeSun\Alphabet.txt -m\home\paumier\unitex\KoreanJeeSun\Dela\DECO-01-NS-201007flx.bin -m\home\paumier\unitex\KoreanJeeSun\Dela\DECO-02-AS-201007flx.bin -m\home\paumier\unitex\KoreanJeeSun\Dela\DECO-03-VS-201007flx.bin -m\home\paumier\unitex\KoreanJeeSun\Dela\DECO-04-DS-201007flx.bin -K \home\paumier\unitex\KoreanJeeSun\Dela\ALL_unflattened-r.fst2
+Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/KoreanJeeSun/Alphabet.txt -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-04-DS-201007flx.bin -K /home/paumier/unitex/KoreanJeeSun/Dela/ALL_unflattened-r.fst2
 
 Command line for korean_locate.ulp
-Locate -t\home\paumier\unitex\Korean\Corpus\1-2.snt \home\paumier\unitex\Korean\Dela\NSall-r.fst2 -a\home\paumier\unitex\Korean\Alphabet.txt -L -R --all -K -m\home\paumier\unitex\Korean\Dela\DECO-01-NS-201007flx.bin -m\home\paumier\unitex\Korean\Dela\DECO-02-AS-201007flx.bin -m\home\paumier\unitex\Korean\Dela\DECO-03-VS-201007flx.bin -m\home\paumier\unitex\Korean\Dela\DECO-04-DS-201007flx.bin -b -Y
+Locate -t/home/paumier/unitex/Korean/Corpus/1-2.snt /home/paumier/unitex/Korean/Dela/NSall-r.fst2 -a/home/paumier/unitex/Korean/Alphabet.txt -L -R --all -K -m/home/paumier/unitex/Korean/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-04-DS-201007flx.bin -b -Y
 
 Command line for logbadfix.ulp
-Locate -u \Users\alexis\Documents\unitex\Arabic\arabic_typo_rules.txt -t\Users\alexis\Documents\unitex\Arabic\Corpus\Essays01_Diac.snt \Users\alexis\Documents\unitex\Arabic\Dela\prfx_Verb_sufx-r.fst2 -a\Users\alexis\Documents\unitex\Arabic\Alphabet.txt -L -R -n200 -s -m\Users\alexis\Documents\unitex\Arabic\Dela\Delaf_Verb_AR.bin -m\Users\alexis\Documents\unitex\Arabic\Dela\PrfxSufx\Prfx_verb_AR.bin -m\Users\alexis\Documents\unitex\Arabic\Dela\PrfxSufx\Sufx_verb_AR.bin -m\Users\alexis\Documents\unitex\Arabic\Dela\PrfxSufx\PRO_Gen_AR.bin -m\Users\alexis\Documents\unitex\Arabic\Dela\PrfxSufx\Freq_AR.bin -b -Y
+Locate -u /Users/alexis/Documents/unitex/Arabic/arabic_typo_rules.txt -t/Users/alexis/Documents/unitex/Arabic/Corpus/Essays01_Diac.snt /Users/alexis/Documents/unitex/Arabic/Dela/prfx_Verb_sufx-r.fst2 -a/Users/alexis/Documents/unitex/Arabic/Alphabet.txt -L -R -n200 -s -m/Users/alexis/Documents/unitex/Arabic/Dela/Delaf_Verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Prfx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Sufx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/PRO_Gen_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Freq_AR.bin -b -Y
 
 Command line for new78_compatible1755.ulp
-Elag "-l\My Unitex\French\Elag\tagset.def" -r\elag.rul "-o\My Unitex\French\Corpus\Un scandale en boheme_snt\text-elag.tfst" "\My Unitex\French\Corpus\Un scandale en boheme_snt\text.tfst"
+Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for new83_compatible1582.ulp
 Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
@@ -41,7 +41,7 @@ Command line for stats.ulp
 Stats /home/paumier/unitex/English/Corpus/ivanhoe_snt/concord.ind -a/home/paumier/unitex/English/Alphabet.txt -l1 -r1 -o/home/paumier/unitex/English/Corpus/ivanhoe_snt/statistics.txt -c1 -m2
 
 Command line for uncompress.ulp
-Uncompress .\motsGramf-.bin
+Uncompress /motsGramf-.bin
 
 Command line for unitex_log_00000002.ulp
 Normalize "/My Unitex/French/Corpus/80jours.txt"
@@ -269,7 +269,7 @@ Command line for unitex_log_00000076.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
 
 Command line for unitex_log_00000077.ulp
-ElagComp -lElag\tagset.def -oelag.rul -rElag\elag.lst
+ElagComp -l/Elag/tagset.def -oelag.rul -r/Elag/elag.lst
 
 Command line for unitex_log_00000079.ulp
 ImplodeTfst "/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst"
@@ -281,7 +281,7 @@ Command line for unitex_log_00000081.ulp
 Tfst2Grf "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst" -s1 "-fTimes New Roman" -z10
 
 Command line for unitex_log_00000082.ulp
-ElagComp -lElag\tagset.def -oelag.rul -rElag\elag.lst
+ElagComp -l/Elag/tagset.def -oelag.rul -r/Elag/elag.lst
 
 Command line for unitex_log_00000084.ulp
 ImplodeTfst "/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst"
@@ -299,5 +299,5 @@ Command line for unitex_log_concord_modify.ulp
 Concord \home\paumier\unitex\French\Corpus\test_snt\concord.ind -m\home\paumier\unitex\French\Corpus\test2.txt
 
 Command line for untokenize.ulp
-Untokenize .\test.txt -d test_snt\
+Untokenize /test.txt -d /test_snt/
 
