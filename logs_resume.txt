@@ -1,3 +1,18 @@
+Command line for ConcordDiff.ulp
+ConcorDiff /conc1.ind /conc2.ind -o concres.htm -f=Helvetica -s 10
+
+Command line for Fst2Check.ulp
+Fst2Check -y -s /SentenceXAlign.fst2
+
+Command line for Fst2CheckTfst.ulp
+Fst2Check -y -t -s .\Norm.fst2
+
+Command line for Fst2List.ulp
+Fst2List -l 300 -a s -p s /Sentence.fst2
+
+Command line for Fst2List_max_line.ulp
+Fst2List -l 100 -a s -p s /Sentence.fst2
+
 Command line for cassys.ulp
 Cassys -a /cassysTestOk/Alphabet.txt --text=/cassysTestOk/80jours.snt -s /logsAna/cassys/cassysTestOk/graph/test_1_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_2_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_3_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_4_r.fst2 -m R --negation_operator=tilde
 
@@ -9,12 +24,6 @@ Compress /motsGramf-.dic
 
 Command line for evamb.ulp
 Evamb -o text_out.txt /text.tfst
-
-Command line for Fst2List_max_line.ulp
-Fst2List -l 100 -a s -p s /Sentence.fst2
-
-Command line for Fst2List.ulp
-Fst2List -l 300 -a s -p s /Sentence.fst2
 
 Command line for input_var_in_morpho_mode.ulp
 Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/French/Graphs/var_morpho.fst2 -a/home/paumier/unitex/French/Alphabet.txt -L -M -n200 --morpho=/home/paumier/Unitex2.1beta/French/Dela/dela-fr-public.bin -b -Y
@@ -29,10 +38,10 @@ Command line for logbadfix.ulp
 Locate -u /Users/alexis/Documents/unitex/Arabic/arabic_typo_rules.txt -t/Users/alexis/Documents/unitex/Arabic/Corpus/Essays01_Diac.snt /Users/alexis/Documents/unitex/Arabic/Dela/prfx_Verb_sufx-r.fst2 -a/Users/alexis/Documents/unitex/Arabic/Alphabet.txt -L -R -n200 -s -m/Users/alexis/Documents/unitex/Arabic/Dela/Delaf_Verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Prfx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Sufx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/PRO_Gen_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Freq_AR.bin -b -Y
 
 Command line for new78_compatible1755.ulp
-Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
+Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for new83_compatible1582.ulp
-Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
+Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for output_variables_tfst.ulp
 LocateTfst -t/home/paumier/unitex/English/Corpus/ivanhoe_snt/text.tfst /home/paumier/unitex/English/Graphs/pronouns.fst2 -a/home/paumier/unitex/English/Alphabet.txt -L -M -n200 -b -Y
@@ -42,6 +51,9 @@ Stats /home/paumier/unitex/English/Corpus/ivanhoe_snt/concord.ind -a/home/paumie
 
 Command line for uncompress.ulp
 Uncompress /motsGramf-.bin
+
+Command line for unitex_log_00000001.ulp
+ConcorDiff .\conc1.ind .\conc2.ind -o concres.htm -f=Helvetica -s 10
 
 Command line for unitex_log_00000002.ulp
 Normalize "/My Unitex/French/Corpus/80jours.txt"
@@ -294,6 +306,33 @@ Tfst2Grf "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst" -s1 "-fT
 
 Command line for unitex_log_00000087.ulp
 Table2Grf "/BOULOT/Recherche/Tables & graphes patrons/SuperTable.txt" "-r/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/super-N0VN1(P).grf" "-o/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/all.grf" "-s/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/@A-N0VN1(P).grf"
+
+Command line for unitex_log_00000088.ulp
+Grf2Fst2 /home/anto/unitex/French/Graphs/Normalization/Norm.grf -y --alphabet=/home/anto/unitex/French/Alphabet.txt
+
+Command line for unitex_log_00000089.ulp
+Txt2Tfst /home/anto/unitex/French/Corpus/80jours.snt -a/home/anto/unitex/French/Alphabet.txt --clean -n/home/anto/unitex/French/Graphs/Normalization/Norm.fst2
+
+Command line for unitex_log_00000090.ulp
+Tagger /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -d/home/anto/workspace/C++/bin/corpus_data_cat.bin -t/home/anto/unitex/French/Elag/tagset.def -a/home/anto/unitex/French/Alphabet.txt
+
+Command line for unitex_log_00000091.ulp
+Tfst2Grf /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -s1 "-fTimes New Roman" -z10
+
+Command line for unitex_log_00000092.ulp
+Grf2Fst2 /home/anto/unitex/French/Graphs/Normalization/Norm.grf -y --alphabet=/home/anto/unitex/French/Alphabet.txt
+
+Command line for unitex_log_00000093.ulp
+Txt2Tfst /home/anto/unitex/French/Corpus/80jours.snt -a/home/anto/unitex/French/Alphabet.txt --clean -n/home/anto/unitex/French/Graphs/Normalization/Norm.fst2 -t/home/anto/unitex/French/Elag/tagset.def
+
+Command line for unitex_log_00000094.ulp
+Tagger /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -d/home/anto/workspace/C++/bin/corpus_data_morph.bin -t/home/anto/unitex/French/Elag/tagset.def -a/home/anto/unitex/French/Alphabet.txt
+
+Command line for unitex_log_00000095.ulp
+Tfst2Grf /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -s1 "-fTimes New Roman" -z10
+
+Command line for unitex_log_00000096.ulp
+TrainingTagger /corpus.txt
 
 Command line for unitex_log_concord_modify.ulp
 Concord /home/paumier/unitex/French/Corpus/test_snt/concord.ind -m/home/paumier/unitex/French/Corpus/test2.txt
