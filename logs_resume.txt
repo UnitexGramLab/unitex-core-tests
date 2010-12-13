@@ -43,9 +43,6 @@ Locate -u /Users/alexis/Documents/unitex/Arabic/arabic_typo_rules.txt -t/Users/a
 Command line for new78_compatible1755.ulp
 Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
-Command line for new83_compatible1582.ulp
-Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
-
 Command line for output_variables_tfst.ulp
 LocateTfst -t/home/paumier/unitex/English/Corpus/ivanhoe_snt/text.tfst /home/paumier/unitex/English/Graphs/pronouns.fst2 -a/home/paumier/unitex/English/Alphabet.txt -L -M -n200 -b -Y
 
@@ -297,6 +294,9 @@ Tfst2Grf "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst" -s1 "-fT
 
 Command line for unitex_log_00000082.ulp
 ElagComp -l/Elag/tagset.def -oelag.rul -r/Elag/elag.lst
+
+Command line for unitex_log_00000083.ulp
+Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for unitex_log_00000084.ulp
 ImplodeTfst "/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst"
