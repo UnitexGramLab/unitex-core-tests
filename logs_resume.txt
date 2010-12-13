@@ -2,10 +2,10 @@ Command line for ConcordDiff.ulp
 ConcorDiff /conc1.ind /conc2.ind -o concres.htm -f=Helvetica -s 10
 
 Command line for Fst2Check.ulp
-Fst2Check -y -s /SentenceXAlign.fst2
+Fst2Check -y -s -o /SentenceXAlign_check_output.txt /SentenceXAlign.fst2
 
 Command line for Fst2CheckTfst.ulp
-Fst2Check -y -t -s /Norm.fst2
+Fst2Check -y -t -s -o /Norm_check_output.txt /Norm.fst2
 
 Command line for Fst2List.ulp
 Fst2List -l 300 -a s -p s /Sentence.fst2
@@ -54,6 +54,9 @@ Stats /home/paumier/unitex/English/Corpus/ivanhoe_snt/concord.ind -a/home/paumie
 
 Command line for uncompress.ulp
 Uncompress /motsGramf-.bin
+
+Command line for unitex_log_00000001.ulp
+Fst2Check -y -s -o /Sentence_check_output.txt /Sentence.fst2
 
 Command line for unitex_log_00000002.ulp
 Normalize "/My Unitex/French/Corpus/80jours.txt"
