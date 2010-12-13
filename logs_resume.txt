@@ -13,6 +13,9 @@ Fst2List -l 300 -a s -p s /Sentence.fst2
 Command line for Fst2List_max_line.ulp
 Fst2List -l 100 -a s -p s /Sentence.fst2
 
+Command line for RebuildTfst.ulp
+RebuildTfst .\test.tfst
+
 Command line for cassys.ulp
 Cassys -a /cassysTestOk/Alphabet.txt --text=/cassysTestOk/80jours.snt -s /logsAna/cassys/cassysTestOk/graph/test_1_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_2_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_3_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_4_r.fst2 -m R --negation_operator=tilde
 
