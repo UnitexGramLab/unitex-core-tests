@@ -19,6 +19,9 @@ Normalize /text_to_normalize_utf16.txt
 Command line for NormalizeUtf8.ulp
 Normalize /text_to_normalize_utf8.txt
 
+Command line for NormalizeUtf8_toUtf8.ulp
+Normalize -q utf8 /text_to_normalize_utf8.txt
+
 Command line for RebuildTfst.ulp
 RebuildTfst /test.tfst
 
