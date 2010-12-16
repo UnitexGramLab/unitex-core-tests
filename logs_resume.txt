@@ -13,6 +13,12 @@ Fst2List -l 300 -a s -p s /Sentence.fst2
 Command line for Fst2List_max_line.ulp
 Fst2List -l 100 -a s -p s /Sentence.fst2
 
+Command line for NormalizeUtf16.ulp
+Normalize /text_to_normalize_utf16.txt
+
+Command line for NormalizeUtf8.ulp
+Normalize /text_to_normalize_utf8.txt
+
 Command line for RebuildTfst.ulp
 RebuildTfst /test.tfst
 
