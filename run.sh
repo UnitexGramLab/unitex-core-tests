@@ -1,5 +1,11 @@
 #!/bin/bash
-for i in `ls *.ulp`
+cmd=`ls *.ulp`
+if [ $# -ne "0" ]; 
+then 
+	cmd=$*
+fi
+
+for i in $cmd
 do
 	echo ================ $i ===================
 	rm -f errr.txt 
