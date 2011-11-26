@@ -209,7 +209,7 @@ Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
 
 Command line for Seq2Grf.ulp
-Seq2Grf .\text_to_normalize_utf16.snt -a Alphabet.txt -o .\foo.grf
+Seq2Grf \text_to_normalize_utf16.snt -a \Alphabet.txt -o \foo.grf
 
 Command line for SortTxt_1.ulp
 SortTxt "/My Unitex/French/Corpus/80jours_snt/dlf" "-l/My Unitex/French/Corpus/80jours_snt/dlf.n" "-o/My Unitex/French/Alphabet_sort.txt"
@@ -300,6 +300,9 @@ Uncompress /motsGramf-.bin
 
 Command line for Untokenize.ulp
 Untokenize /test.txt -d /test_snt/
+
+Command line for Unxmlize.ulp
+Unxmlize .\boheme.xml -o .\boheme.txt
 
 Command line for XMLizer_1.ulp
 XMLizer -t "-o/My Unitex/English/Corpus/bohemia.xml" "-a/My Unitex/English/Alphabet.txt" "-s/My Unitex/XAlign/Sentence/SentenceXAlign.fst2" "/My Unitex/English/Corpus/A Scandal in Bohemia.txt"
