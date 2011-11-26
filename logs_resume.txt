@@ -130,6 +130,12 @@ Grf2Fst2 "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.grf" -y "--alph
 Command line for Grf2Fst2_8_elag_tu.ulp
 Grf2Fst2 "/My Unitex/French/Elag/elag-tu.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
 
+Command line for GrfDiff.ulp
+GrfDiff .\Sentence1.grf .\Sentence2.grf --output .\diffGrf.txt
+
+Command line for GrfDiff3.ulp
+GrfDiff3 .\Sentence1.grf .\Sentence2.grf .\Sentence3.grf --output .\sentenceGrfDif3.grf
+
 Command line for ImplodeTfst_1.ulp
 ImplodeTfst "/My Unitex/French/Corpus/80jours_snt/text.tfst"
 
@@ -201,6 +207,9 @@ Reg2Grf "/My Unitex/French/regexp.txt"
 
 Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
+
+Command line for Seq2Grf.ulp
+Seq2Grf .\text_to_normalize_utf16.snt -a Alphabet.txt -o .\foo.grf
 
 Command line for SortTxt_1.ulp
 SortTxt "/My Unitex/French/Corpus/80jours_snt/dlf" "-l/My Unitex/French/Corpus/80jours_snt/dlf.n" "-o/My Unitex/French/Alphabet_sort.txt"
