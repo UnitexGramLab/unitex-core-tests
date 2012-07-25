@@ -11,6 +11,6 @@ do
 #		echo "Error detected by valgrind on log $i"
 #		exit 1
 #	fi
-	mv /tmp/foo.ulp new_logs/$i
+	mv /tmp/foo.ulp $i
 done
 
