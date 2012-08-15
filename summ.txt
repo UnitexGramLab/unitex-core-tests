@@ -1,0 +1,39 @@
+--> LOG COMPARE: good news: 11 msec, new log result is compatible with previous log for MultiFlex_1.ulp and MultiFlex_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 2 msec, new log result is compatible with previous log for MultiFlex_2.ulp and MultiFlex_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 6 msec, new log result is compatible with previous log for MultiFlex_3.ulp and MultiFlex_3.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 130 msec, new log result is compatible with previous log for Locate_avec_TRE.ulp and Locate_avec_TRE.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 10995 msec, new log result is compatible with previous log for Locate_badfix.ulp and Locate_badfix.ulp.rerun.ulp
+
+-> log error : bad compare home/paumier/unitex/KoreanJeeSun/Corpus/test_snt/concord.ind
+-> log error : bad compare home/paumier/unitex/KoreanJeeSun/Corpus/test_snt/concord.n
+-> log error : bad compare home/paumier/unitex/KoreanJeeSun/Corpus/test_snt/tags.ind
+--> LOG COMPARE: !!!! bad news: 1176 msec, new log result is NOT compatible with previous log for Dico_korean.ulp and Dico_korean.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1174 msec, new log result is compatible with previous log for Dico_korean.ulp and Dico_korean.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 386 msec, new log result is compatible with previous log for Dico_1.ulp and Dico_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 307 msec, new log result is compatible with previous log for Dico_2.ulp and Dico_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 268 msec, new log result is compatible with previous log for Dico_3.ulp and Dico_3.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1378 msec, new log result is compatible with previous log for Dico_4.ulp and Dico_4.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 479 msec, new log result is compatible with previous log for Dico_5.ulp and Dico_5.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1391 msec, new log result is compatible with previous log for Dico_korean.ulp and Dico_korean.ulp.rerun.ulp
+
+-> log error : bad compare home/paumier/unitex/Korean/Corpus/1-2_snt/concord.ind
+-> log error : bad compare home/paumier/unitex/Korean/Corpus/1-2_snt/concord.n
+--> LOG COMPARE: !!!! bad news: 25644 msec, new log result is NOT compatible with previous log for Locate_korean.ulp and Locate_korean.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 25391 msec, new log result is compatible with previous log for Locate_korean.ulp and Locate_korean.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1173 msec, new log result is compatible with previous log for Dico_korean.ulp and Dico_korean.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 25715 msec, new log result is compatible with previous log for Locate_korean.ulp and Locate_korean.ulp.rerun.ulp
+

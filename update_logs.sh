@@ -1,6 +1,11 @@
 #!/bin/bash
+cmd=`ls *.ulp`
+if [ $# -ne "0" ]; 
+then 
+	cmd=$*
+fi
 mkdir new_logs
-for i in `ls *.ulp`
+for i in $cmd
 do
 	echo ================ $i ===================
 	rm -f errr.txt 
