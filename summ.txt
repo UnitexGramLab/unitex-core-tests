@@ -37,3 +37,57 @@
 
 --> LOG COMPARE: good news: 25715 msec, new log result is compatible with previous log for Locate_korean.ulp and Locate_korean.ulp.rerun.ulp
 
+--> LOG COMPARE: good news: 14 msec, new log result is compatible with previous log for Grf2Fst2_1.ulp and Grf2Fst2_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 8 msec, new log result is compatible with previous log for Grf2Fst2_2.ulp and Grf2Fst2_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 7 msec, new log result is compatible with previous log for Grf2Fst2_3.ulp and Grf2Fst2_3.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 2 msec, new log result is compatible with previous log for Grf2Fst2_4.ulp and Grf2Fst2_4.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 9 msec, new log result is compatible with previous log for Grf2Fst2_5.ulp and Grf2Fst2_5.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 15 msec, new log result is compatible with previous log for Grf2Fst2_6.ulp and Grf2Fst2_6.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 7 msec, new log result is compatible with previous log for Grf2Fst2_7.ulp and Grf2Fst2_7.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 3 msec, new log result is compatible with previous log for Grf2Fst2_8_elag_tu.ulp and Grf2Fst2_8_elag_tu.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1 msec, new log result is compatible with previous log for Tfst2Grf_1.ulp and Tfst2Grf_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 0 msec, new log result is compatible with previous log for Tfst2Grf_2.ulp and Tfst2Grf_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1 msec, new log result is compatible with previous log for Tfst2Grf_3.ulp and Tfst2Grf_3.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 0 msec, new log result is compatible with previous log for Tfst2Grf_4.ulp and Tfst2Grf_4.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1 msec, new log result is compatible with previous log for Tfst2Grf_5.ulp and Tfst2Grf_5.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 0 msec, new log result is compatible with previous log for Tfst2Grf_6.ulp and Tfst2Grf_6.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1 msec, new log result is compatible with previous log for Tfst2Grf_7.ulp and Tfst2Grf_7.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 0 msec, new log result is compatible with previous log for Tfst2Grf_8.ulp and Tfst2Grf_8.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 560 msec, new log result is compatible with previous log for LocateTfst_1.ulp and LocateTfst_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 19 msec, new log result is compatible with previous log for LocateTfst_2.ulp and LocateTfst_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 760 msec, new log result is compatible with previous log for LocateTfst_output_variables.ulp and LocateTfst_output_variables.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 22 msec, new log result is compatible with previous log for Grf2Fst2_1.ulp and Grf2Fst2_1.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 8 msec, new log result is compatible with previous log for Grf2Fst2_2.ulp and Grf2Fst2_2.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 7 msec, new log result is compatible with previous log for Grf2Fst2_3.ulp and Grf2Fst2_3.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 2 msec, new log result is compatible with previous log for Grf2Fst2_4.ulp and Grf2Fst2_4.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 3 msec, new log result is compatible with previous log for Grf2Fst2_5.ulp and Grf2Fst2_5.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 20 msec, new log result is compatible with previous log for Grf2Fst2_6.ulp and Grf2Fst2_6.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 8 msec, new log result is compatible with previous log for Grf2Fst2_7.ulp and Grf2Fst2_7.ulp.rerun.ulp
+
+--> LOG COMPARE: good news: 1 msec, new log result is compatible with previous log for Grf2Fst2_8_elag_tu.ulp and Grf2Fst2_8_elag_tu.ulp.rerun.ulp
+
