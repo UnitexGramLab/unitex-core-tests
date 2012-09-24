@@ -134,7 +134,10 @@ Command line for GrfDiff.ulp
 GrfDiff .\Sentence1.grf .\Sentence2.grf --output .\diffGrf.txt
 
 Command line for GrfDiff3.ulp
-GrfDiff3 .\Sentence1.grf .\Sentence2.grf .\Sentence3.grf --output .\sentenceGrfDif3.grf
+GrfDiff3 /Sentence1.grf /Sentence2.grf /Sentence3.grf --output /sentenceGrfDif3.grf
+
+Command line for GrfTest1.ulp
+GrfTest ./PostElisions.grf -w .\work -o .\GrfTestOut.txt
 
 Command line for ImplodeTfst_1.ulp
 ImplodeTfst "/My Unitex/French/Corpus/80jours_snt/text.tfst"
@@ -153,6 +156,9 @@ LocateTfst "-t/My Unitex/Norwegian/Corpus/folkeeventyr_snt/text.tfst" "/My Unite
 
 Command line for LocateTfst_output_variables.ulp
 LocateTfst -t/home/paumier/unitex/English/Corpus/ivanhoe_snt/text.tfst /home/paumier/unitex/English/Graphs/pronouns.fst2 -a/home/paumier/unitex/English/Alphabet.txt -L -M -n200 -b -Y
+
+Command line for Locate_avec_TRE.ulp
+Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/French/regexp.fst2 -a/home/paumier/unitex/French/Alphabet.txt -L -I -n200 -m/home/paumier/unitex/French/Dela/test.bin -b -Y -qutf8-no-bom
 
 Command line for Locate_badfix.ulp
 Locate -u /Users/alexis/Documents/unitex/Arabic/arabic_typo_rules.txt -t/Users/alexis/Documents/unitex/Arabic/Corpus/Essays01_Diac.snt /Users/alexis/Documents/unitex/Arabic/Dela/prfx_Verb_sufx-r.fst2 -a/Users/alexis/Documents/unitex/Arabic/Alphabet.txt -L -R -n200 -s -m/Users/alexis/Documents/unitex/Arabic/Dela/Delaf_Verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Prfx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Sufx_verb_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/PRO_Gen_AR.bin -m/Users/alexis/Documents/unitex/Arabic/Dela/PrfxSufx/Freq_AR.bin -b -Y
@@ -212,7 +218,7 @@ Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
 
 Command line for Seq2Grf.ulp
-Seq2Grf \text_to_normalize_utf16.snt -a \Alphabet.txt -o \foo.grf
+Seq2Grf /text_to_normalize_utf16.snt -a /Alphabet.txt -o /foo.grf
 
 Command line for SortTxt_1.ulp
 SortTxt "/My Unitex/French/Corpus/80jours_snt/dlf" "-l/My Unitex/French/Corpus/80jours_snt/dlf.n" "-o/My Unitex/French/Alphabet_sort.txt"
