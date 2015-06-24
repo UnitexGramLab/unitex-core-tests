@@ -1,8 +1,20 @@
 Command line for Cassys_1.ulp
-Cassys -a ./cassysTestOk/Alphabet.txt --text=./cassysTestOk/80jours.snt -s ./logsAna/cassys/cassysTestOk/graph/test_1_m.fst2 -m M -s ./logsAna/cassys/cassysTestOk/graph/test_2_m.fst2 -m M -s ./logsAna/cassys/cassysTestOk/graph/test_3_m.fst2 -m M -s ./logsAna/cassys/cassysTestOk/graph/test_4_r.fst2 -m R --negation_operator=tilde
+Cassys -a /cassysTestOk/Alphabet.txt --text=/cassysTestOk/80jours.snt -s /logsAna/cassys/cassysTestOk/graph/test_1_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_2_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_3_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_4_r.fst2 -m R --negation_operator=tilde
+
+Command line for Cassys_1_cleanup.ulp
+Cassys -a /cassysTestOk/Alphabet.txt --text=/cassysTestOk/80jours.snt -s /logsAna/cassys/cassysTestOk/graph/test_1_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_2_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_3_m.fst2 -m M -s /logsAna/cassys/cassysTestOk/graph/test_4_r.fst2 -m R --negation_operator=tilde --no_dump_token_graph --cleanup_working_files
+
+Command line for Cassys_csc.ulp
+Cassys -a /Alphabet.txt -t /Corpus/80jours/80jours_csc.snt -l /tutorial/Tutoriel_CasSys_Synthese.csc -w /miniDela/ajouts80jours.bin -qutf8-no-bom -r /French/Graphs/Tutoriel_CasSys_synthese/ --realign_token_graph_pointer --translate_path_separator_to_native
+
+Command line for Cassys_csc_cleanup.ulp
+Cassys -a /Alphabet.txt -t /Corpus/80jours/80jours_csc.snt -l /tutorial/Tutoriel_CasSys_Synthese.csc -w /miniDela/ajouts80jours.bin -qutf8-no-bom -r /French/Graphs/Tutoriel_CasSys_synthese/ --realign_token_graph_pointer --no_dump_token_graph --cleanup_working_files
 
 Command line for CheckDic_1.ulp
 CheckDic --skip_path -s /motsGramf-.dic
+
+Command line for CompileGraphMiniTestCassys.ulp
+Grf2Fst2 .\miniComplexe.grf
 
 Command line for Compress_1.ulp
 Compress /motsGramf-.dic
@@ -25,6 +37,9 @@ Convert --aliases
 Command line for Convert_2.ulp
 Convert -sENGLISH -dLITTLE-ENDIAN --ss=-old "/My Unitex/English/Corpus/A Scandal in Bohemia.txt" "/My Unitex/French/Corpus/Un scandale en boheme.txt"
 
+Command line for demoRunScript.ulp
+RunScript -v -a INPUT_FILE_1=demo\testdate.txt -a CORPUS_WORK_DIR=work\from_script -a PACKAGE_DIR=pkg\res -a OUTPUT_FILE_1=demo\result_date_merge.txt -a OUTPUT_FILE_2=demo\result_date.xml -a OUTPUT_FILE_3=demo\result_date.txt pkg\res\script\standard.uniscript
+
 Command line for Dico_1.ulp
 Dico "-t/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" -m/Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/ajouts80jours.bin /Unitex2.1/French/Dela/motsGramf-.bin
 
@@ -42,6 +57,9 @@ Dico "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "-a/My Unitex/French
 
 Command line for Dico_korean.ulp
 Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/KoreanJeeSun/Alphabet.txt -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-04-DS-201007flx.bin -K /home/paumier/unitex/KoreanJeeSun/Dela/ALL_unflattened-r.fst2
+
+Command line for DumpOffsets_Denormalize.ulp
+DumpOffsets -d -r.\Norm.txt -o Corpus\A.txt -n Corpus\A_csc.raw Corpus\A_csc_raw_offsets_merged_4.txt --full -p ./corpus_raw_denorm.txt
 
 Command line for ElagComp_1.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
@@ -169,6 +187,9 @@ Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/Fre
 Command line for Locate_korean.ulp
 Locate -t/home/paumier/unitex/Korean/Corpus/1-2.snt /home/paumier/unitex/Korean/Dela/NSall-r.fst2 -a/home/paumier/unitex/Korean/Alphabet.txt -L -R --all -K -m/home/paumier/unitex/Korean/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-04-DS-201007flx.bin -b -Y
 
+Command line for miniTestCassys.ulp
+Cassys -a /Alphabet.txt -t /Corpus/mini80jours/mini80jours_csc.snt -l /CasSys/mini_synthese.csc -qutf8-no-bom -r /Graphs/ --realign_token_graph_pointer
+
 Command line for MultiFlex_1.ulp
 MultiFlex /unitex_log_00000057.ulp_tmpdir/Unitex2.1/French/Inflection/Verbes.dic -o/unitex_log_00000057.ulp_tmpdir/Unitex2.1/French/Inflection/Verbesflx.dic "-a/unitex_log_00000057.ulp_tmpdir/My Unitex/French/Alphabet.txt" "-d/unitex_log_00000057.ulp_tmpdir/My Unitex/French/Inflection"
 
@@ -177,6 +198,9 @@ MultiFlex "/unitex_log_00000058.ulp_tmpdir/My Unitex/French/Inflection/Adj.dic" 
 
 Command line for MultiFlex_3.ulp
 MultiFlex "/unitex_log_00000059.ulp_tmpdir/My Unitex/French/Inflection/Noms.dic" "-o/unitex_log_00000059.ulp_tmpdir/My Unitex/French/Inflection/Nomsflx.dic" "-a/unitex_log_00000059.ulp_tmpdir/My Unitex/French/Alphabet.txt" "-d/unitex_log_00000059.ulp_tmpdir/My Unitex/French/Inflection"
+
+Command line for MultiFlex_semitic.ulp
+MultiFlex /Arabic/Dela/Semitic_and_Lemma.dic -o /Arabic/Dela/Regress_test/Semitic_and_Lemmaflx.dic -a /Users/alexisneme/unitex/Arabic/Alphabet.txt -p /Arabic/Inflection/ -d /Arabic/Inflection --always-recompile-graphs
 
 Command line for Normalize_1.ulp
 Normalize "/My Unitex/French/Corpus/80jours.txt"
@@ -205,6 +229,12 @@ Normalize -q utf8 /text_to_normalize_utf8.txt
 Command line for PolyLex_1.ulp
 PolyLex -N "-a/My Unitex/Norwegian/Alphabet.txt" -d/Unitex2.1/Norwegian/Dela/Dela-sample.bin "/My Unitex/Norwegian/Corpus/folkeeventyr_snt/err" "-o/My Unitex/Norwegian/Corpus/folkeeventyr_snt/dlf" "-i/My Unitex/Norwegian/Corpus/folkeeventyr_snt/decomp.txt"
 
+Command line for PolyLex_Dutch_InfiniteExploration.ulp
+PolyLex --dutch -a /Taxinomia_data/DevNL/polylex/Alphabet.txt -d /Taxinomia/ExtractMW/Nl/wl_utu_nl.bin -o /tmp/114427.pdf_snt/polylex_ULP.txt -i /tmp/114427.pdf_snt/polyLex_decomp_ULP.txt /tmp/114427.pdf_snt/err
+
+Command line for PolyLex_Dutch_ok.ulp
+PolyLex --dutch -a /Taxinomia_data/DevNL/polylex/Alphabet.txt -d /Taxinomia/ExtractMW/Nl/wl_utu_nl.bin -o /tmp/q1/q1_g_CCONST_be_c_const.txt.pre_snt/polyLex_ULP.txt -i /tmp/q1/q1_g_CCONST_be_c_const.txt.pre_snt/polyLex_decomp_ULP.txt /tmp/q1/q1_g_CCONST_be_c_const.txt.pre_snt/err
+
 Command line for RebuildTfst_1.ulp
 RebuildTfst /test.tfst
 
@@ -216,6 +246,9 @@ Reg2Grf "/My Unitex/French/regexp.txt"
 
 Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
+
+Command line for reRealCassys_1.ulp
+Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde --no_dump_token_graph --cleanup_working_files
 
 Command line for Seq2Grf.ulp
 Seq2Grf /text_to_normalize_utf16.snt -a /Alphabet.txt -o /foo.grf
@@ -285,6 +318,9 @@ Tfst2Grf /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -s1 "-fTimes New 
 
 Command line for Tfst2Unambig_1.ulp
 Tfst2Unambig "/My Unitex/Norwegian/Corpus/folkeeventyr_snt/text.tfst" "-o/My Unitex/Norwegian/Corpus/linear.txt"
+
+Command line for thebug.ulp
+Fst2Txt -t .\Corpus4\unitexInput.snt -a .\Alphabet.txt -x -w -R --output_offsets .\Corpus4\sntoffsets_2.txt .\Replace.fst2
 
 Command line for Tokenize_1.ulp
 Tokenize "/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt"
