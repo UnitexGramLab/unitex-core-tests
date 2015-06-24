@@ -38,7 +38,7 @@ Command line for Convert_2.ulp
 Convert -sENGLISH -dLITTLE-ENDIAN --ss=-old "/My Unitex/English/Corpus/A Scandal in Bohemia.txt" "/My Unitex/French/Corpus/Un scandale en boheme.txt"
 
 Command line for demoRunScript.ulp
-RunScript -v -a INPUT_FILE_1=demo\testdate.txt -a CORPUS_WORK_DIR=work\from_script -a PACKAGE_DIR=pkg\res -a OUTPUT_FILE_1=demo\result_date_merge.txt -a OUTPUT_FILE_2=demo\result_date.xml -a OUTPUT_FILE_3=demo\result_date.txt pkg\res\script\standard.uniscript
+RunScript -v -a INPUT_FILE_1=/demo/testdate.txt -a CORPUS_WORK_DIR=/ -a PACKAGE_DIR=/pkg/res -a OUTPUT_FILE_1=/demo/result_date_merge.txt -a OUTPUT_FILE_2=/demo/result_date.xml -a OUTPUT_FILE_3=/demo/result_date.txt /pkg/res/script/standard.uniscript
 
 Command line for Dico_1.ulp
 Dico "-t/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" -m/Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/ajouts80jours.bin /Unitex2.1/French/Dela/motsGramf-.bin
@@ -246,9 +246,6 @@ Reg2Grf "/My Unitex/French/regexp.txt"
 
 Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
-
-Command line for reRealCassys_1.ulp
-Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde --no_dump_token_graph --cleanup_working_files
 
 Command line for Seq2Grf.ulp
 Seq2Grf /text_to_normalize_utf16.snt -a /Alphabet.txt -o /foo.grf
