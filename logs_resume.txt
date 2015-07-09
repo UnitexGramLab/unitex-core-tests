@@ -10,6 +10,9 @@ Cassys -a /Alphabet.txt -t /Corpus/80jours/80jours_csc.snt -l /tutorial/Tutoriel
 Command line for Cassys_csc_cleanup.ulp
 Cassys -a /Alphabet.txt -t /Corpus/80jours/80jours_csc.snt -l /tutorial/Tutoriel_CasSys_Synthese.csc -w /miniDela/ajouts80jours.bin -qutf8-no-bom -r /French/Graphs/Tutoriel_CasSys_synthese/ --realign_token_graph_pointer --no_dump_token_graph --cleanup_working_files
 
+Command line for cassys_generic_graph.ulp
+Cassys --cleanup_working_files --in_place --translate_path_separator_to_native -a/Unitex/French/Alphabet.txt -t/Unitex/French/Corpus/A.snt -l/Unitex/French/Cassys/CasEN_Quaero_analyse.csc -v -r/Unitex/French/Graphs/ --input_offsets=/Unitex/French/Corpus/A_snt/normalize.out.offsets
+
 Command line for CheckDic_1.ulp
 CheckDic --skip_path -s /motsGramf-.dic
 
