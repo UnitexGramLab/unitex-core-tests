@@ -62,7 +62,7 @@ Command line for Dico_korean.ulp
 Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/KoreanJeeSun/Alphabet.txt -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-04-DS-201007flx.bin -K /home/paumier/unitex/KoreanJeeSun/Dela/ALL_unflattened-r.fst2
 
 Command line for DumpOffsets_Denormalize.ulp
-DumpOffsets -d -r.\Norm.txt -o Corpus\A.txt -n Corpus\A_csc.raw Corpus\A_csc_raw_offsets_merged_4.txt --full -p ./corpus_raw_denorm.txt
+DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
 
 Command line for ElagComp_1.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
@@ -74,10 +74,10 @@ Command line for ElagComp_3.ulp
 ElagComp -l/Elag/tagset.def -oelag.rul -r/Elag/elag.lst
 
 Command line for Elag_1.ulp
-Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
+Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for Elag_new78_compatible1755.ulp
-Elag "-l/My Unitex/French/Elag/tagset.def" "-r/elag.rul" "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
+Elag "-l/My Unitex/French/Elag/tagset.def" -r/elag.rul "-o/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst" "/My Unitex/French/Corpus/Un scandale en boheme_snt/text.tfst"
 
 Command line for Evamb_1.ulp
 Evamb -o /text_out.txt /text.tfst
@@ -113,10 +113,10 @@ Command line for Fst2List_max_line.ulp
 Fst2List -l 100 -a s -p s /Sentence.fst2
 
 Command line for Fst2Txt_1.ulp
-Fst2Txt "-t/My Unitex/French/Corpus/80jours.snt" "/My Unitex/French/Graphs/Preprocessing/Sentence/Sentence.fst2" "-a/My Unitex/French/Alphabet.txt" -M
+Fst2Txt "-t/My Unitex/French/Corpus/80jours.snt" "/My Unitex/French/Graphs/Preprocessing/Sentence/Sentence.fst2" "-a/My Unitex/French/Alphabet.txt" -M "--input_offsets=/My Unitex/French/Corpus/80jours_offset_Normalize.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt1.txt"
 
 Command line for Fst2Txt_2.ulp
-Fst2Txt "-t/My Unitex/French/Corpus/80jours.snt" "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.fst2" "-a/My Unitex/French/Alphabet.txt" -R
+Fst2Txt "-t/My Unitex/French/Corpus/80jours.snt" "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.fst2" "-a/My Unitex/French/Alphabet.txt" -R "--input_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt1.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt2.txt"
 
 Command line for Fst2Txt_3.ulp
 Fst2Txt "-t/My Unitex/Norwegian/Corpus/folkeeventyr.snt" "/My Unitex/Norwegian/Graphs/Preprocessing/Sentence/Sentence.fst2" "-a/My Unitex/Norwegian/Alphabet.txt" -M
@@ -206,7 +206,7 @@ Command line for MultiFlex_semitic.ulp
 MultiFlex /Arabic/Dela/Semitic_and_Lemma.dic -o /Arabic/Dela/Regress_test/Semitic_and_Lemmaflx.dic -a /Users/alexisneme/unitex/Arabic/Alphabet.txt -p /Arabic/Inflection/ -d /Arabic/Inflection --always-recompile-graphs
 
 Command line for Normalize_1.ulp
-Normalize "/My Unitex/French/Corpus/80jours.txt"
+Normalize "/My Unitex/French/Corpus/80jours.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Normalize.txt"
 
 Command line for Normalize_2.ulp
 Normalize "/My Unitex/Norwegian/Corpus/folkeeventyr.txt"
@@ -250,6 +250,12 @@ Reg2Grf "/My Unitex/French/regexp.txt"
 Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
 
+Command line for reRealCassys_1.ulp
+Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde --no_dump_token_graph --cleanup_working_files
+
+Command line for reRealCassys_1.ulp.rerun.ulp
+
+
 Command line for Seq2Grf.ulp
 Seq2Grf /text_to_normalize_utf16.snt -a /Alphabet.txt -o /foo.grf
 
@@ -278,10 +284,10 @@ Command line for Table2Grf.ulp
 Table2Grf "/BOULOT/Recherche/Tables & graphes patrons/SuperTable.txt" "-r/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/super-N0VN1(P).grf" "-o/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/all.grf" "-s/BOULOT/Recherche/Tables & graphes patrons/Graphes/Graphes patrons/test/@A-N0VN1(P).grf"
 
 Command line for Tagger_1.ulp
-Tagger ./unitex/French/Corpus/80jours_snt/text.tfst -o./out.tfst -d./unitex/French/Dela/tagger_data_cat.bin -t./unitex/French/Elag/tagset.def -a./unitex/French/Alphabet.txt
+Tagger /unitex/French/Corpus/80jours_snt/text.tfst -o/out.tfst -d/unitex/French/Dela/tagger_data_cat.bin -t/unitex/French/Elag/tagset.def -a/unitex/French/Alphabet.txt
 
 Command line for Tagger_2.ulp
-Tagger ./unitex/French/Corpus/80jours_snt/text.tfst -o./out.tfst -d./unitex/French/Dela/tagger_data_morph.bin -t./unitex/French/Elag/tagset.def -a./unitex/French/Alphabet.txt
+Tagger /unitex/French/Corpus/80jours_snt/text.tfst -o/out.tfst -d/unitex/French/Dela/tagger_data_morph.bin -t/unitex/French/Elag/tagset.def -a/unitex/French/Alphabet.txt
 
 Command line for TagsetNormTfst_1.ulp
 TagsetNormTfst "-t/My Unitex/French/Elag/tagset.def" "/My Unitex/French/Corpus/80jours_snt/text.tfst"
@@ -320,10 +326,10 @@ Command line for Tfst2Unambig_1.ulp
 Tfst2Unambig "/My Unitex/Norwegian/Corpus/folkeeventyr_snt/text.tfst" "-o/My Unitex/Norwegian/Corpus/linear.txt"
 
 Command line for thebug.ulp
-Fst2Txt -t .\Corpus4\unitexInput.snt -a .\Alphabet.txt -x -w -R --output_offsets .\Corpus4\sntoffsets_2.txt .\Replace.fst2
+Fst2Txt -t /Corpus4/unitexInput.snt -a /Alphabet.txt -x -w -R --output_offsets /Corpus4/sntoffsets_2.txt /Replace.fst2
 
 Command line for Tokenize_1.ulp
-Tokenize "/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt"
+Tokenize "/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" "--input_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt2.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Tokenize.txt"
 
 Command line for Tokenize_2.ulp
 Tokenize "/My Unitex/Norwegian/Corpus/folkeeventyr.snt" "-a/My Unitex/Norwegian/Alphabet.txt"
