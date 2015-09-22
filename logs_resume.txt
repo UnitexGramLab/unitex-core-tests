@@ -34,6 +34,9 @@ Compress --v2 /motsGramf-.dic
 Command line for Concord_modify.ulp
 Concord /home/paumier/unitex/French/Corpus/test_snt/concord.ind -m/home/paumier/unitex/French/Corpus/test2.txt
 
+Command line for concord_offset_uima_xml.ulp
+Concord "/My Unitex/French/Corpus/80jours_snt/concord.ind" "--uima=/My Unitex/French/Corpus/80jours_offset_Tokenize.txt" -m "/My Unitex/French/Corpus/80jours.snt" --xml
+
 Command line for Convert_1.ulp
 Convert --aliases
 
@@ -42,6 +45,9 @@ Convert -sENGLISH -dLITTLE-ENDIAN --ss=-old "/My Unitex/English/Corpus/A Scandal
 
 Command line for demoRunScript.ulp
 RunScript -v -a INPUT_FILE_1=/demo/testdate.txt -a CORPUS_WORK_DIR=/ -a PACKAGE_DIR=/pkg/res -a OUTPUT_FILE_1=/demo/result_date_merge.txt -a OUTPUT_FILE_2=/demo/result_date.xml -a OUTPUT_FILE_3=/demo/result_date.txt /pkg/res/script/standard.uniscript
+
+Command line for Denormalize.ulp
+DumpOffsets -d -qutf8-no-bom -o \Corpus\AB.txt -n \Corpus\A_csc_csc_csc.txt \Corpus\A_csc_csc_csc_txt_offsets.txt -p \Corpus\A_denorm.txt -rNorm.txt
 
 Command line for Dico_1.ulp
 Dico "-t/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" -m/Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/ajouts80jours.bin /Unitex2.1/French/Dela/motsGramf-.bin
@@ -168,6 +174,9 @@ ImplodeTfst "/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst"
 
 Command line for ImplodeTfst_3.ulp
 ImplodeTfst "/My Unitex/French/Corpus/Un scandale en boheme_snt/text-elag.tfst"
+
+Command line for LocateMorpho2.ulp
+Locate -a /home/paumier/unitex/French/Alphabet.txt -t "/My Unitex/French/Corpus/80jours.snt" -L -M -n200 --morpho=/home/paumier/Unitex2.1beta/French/Dela/dela-fr-public.bin -b -Y /home/paumier/unitex/French/Graphs/var_morpho.fst2
 
 Command line for LocateTfst_1.ulp
 LocateTfst "-t/My Unitex/French/Corpus/80jours_snt/text.tfst" "/My Unitex/French/regexp.fst2" "-a/My Unitex/French/Alphabet.txt" -L -I -n200 -b -Y
