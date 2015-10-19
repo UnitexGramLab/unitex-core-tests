@@ -47,7 +47,7 @@ Command line for demoRunScript.ulp
 RunScript -v -a INPUT_FILE_1=/demo/testdate.txt -a CORPUS_WORK_DIR=/ -a PACKAGE_DIR=/pkg/res -a OUTPUT_FILE_1=/demo/result_date_merge.txt -a OUTPUT_FILE_2=/demo/result_date.xml -a OUTPUT_FILE_3=/demo/result_date.txt /pkg/res/script/standard.uniscript
 
 Command line for Denormalize.ulp
-DumpOffsets -d -qutf8-no-bom -o \Corpus\AB.txt -n \Corpus\A_csc_csc_csc.txt \Corpus\A_csc_csc_csc_txt_offsets.txt -p \Corpus\A_denorm.txt -rNorm.txt
+DumpOffsets -d -qutf8-no-bom -o /Corpus/AB.txt -n /Corpus/A_csc_csc_csc.txt /Corpus/A_csc_csc_csc_txt_offsets.txt -p /Corpus/A_denorm.txt -rNorm.txt
 
 Command line for Dico_1.ulp
 Dico "-t/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" -m/Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/dela-fr-public.bin /Unitex2.1/French/Dela/ajouts80jours.bin /Unitex2.1/French/Dela/motsGramf-.bin
@@ -68,7 +68,7 @@ Command line for Dico_korean.ulp
 Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/KoreanJeeSun/Alphabet.txt -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/KoreanJeeSun/Dela/DECO-04-DS-201007flx.bin -K /home/paumier/unitex/KoreanJeeSun/Dela/ALL_unflattened-r.fst2
 
 Command line for DumpOffsets_Denormalize.ulp
-DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
+DumpOffsets -d -r/Norm.txt -o /Corpus/A.txt -n /Corpus/A_csc.raw /Corpus/A_csc_raw_offsets_merged_4.txt --full -p /corpus_raw_denorm.txt
 
 Command line for ElagComp_1.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
@@ -264,6 +264,9 @@ Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAn
 
 Command line for reRealCassys_1.ulp.rerun.ulp
 
+
+Command line for ReRunScript.ulp
+RunScript -v -a INPUT_FILE_1=\testdate.txt -a CORPUS_WORK_DIR=. -a PACKAGE_DIR=\testHourScriptAndRes -a OUTPUT_FILE_1=\result_date_merge.txt \testHourScriptAndRes\script\standard.uniscript
 
 Command line for Seq2Grf.ulp
 Seq2Grf /text_to_normalize_utf16.snt -a /Alphabet.txt -o /foo.grf
