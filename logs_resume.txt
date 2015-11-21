@@ -70,6 +70,12 @@ Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/
 Command line for DumpOffsets_Denormalize.ulp
 DumpOffsets -d -r/Norm.txt -o /Corpus/A.txt -n /Corpus/A_csc.raw /Corpus/A_csc_raw_offsets_merged_4.txt --full -p /corpus_raw_denorm.txt
 
+Command line for DumpOffsets_DenormalizeNew.ulp
+DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
+
+Command line for DumpOffsets_DenormalizeOld.ulp
+DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
+
 Command line for ElagComp_1.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
 
@@ -259,12 +265,6 @@ Reg2Grf "/My Unitex/French/regexp.txt"
 Command line for Reg2Grf_2.ulp
 Reg2Grf "/My Unitex/Norwegian/regexp.txt"
 
-Command line for reRealCassys_1.ulp
-Cassys -a \cassysTestOk\Alphabet.txt --text=\cassysTestOk\80jours.snt -s \logsAna\cassys\cassysTestOk\graph\test_1_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_2_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_3_m.fst2 -m M -s \logsAna\cassys\cassysTestOk\graph\test_4_r.fst2 -m R --negation_operator=tilde --no_dump_token_graph --cleanup_working_files
-
-Command line for reRealCassys_1.ulp.rerun.ulp
-
-
 Command line for ReRunScript.ulp
 RunScript -v -a INPUT_FILE_1=\testdate.txt -a CORPUS_WORK_DIR=. -a PACKAGE_DIR=\testHourScriptAndRes -a OUTPUT_FILE_1=\result_date_merge.txt \testHourScriptAndRes\script\standard.uniscript
 
@@ -338,7 +338,7 @@ Command line for Tfst2Unambig_1.ulp
 Tfst2Unambig "/My Unitex/Norwegian/Corpus/folkeeventyr_snt/text.tfst" "-o/My Unitex/Norwegian/Corpus/linear.txt"
 
 Command line for thebug.ulp
-Fst2Txt -t /Corpus4/unitexInput.snt -a /Alphabet.txt -x -w -R --output_offsets /Corpus4/sntoffsets_2.txt /Replace.fst2
+Fst2Txt -t .\Corpus4\unitexInput.snt -a .\Alphabet.txt -x -w -R --output_offsets .\Corpus4\sntoffsets_2.txt .\Replace.fst2
 
 Command line for Tokenize_1.ulp
 Tokenize "/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" "--input_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt2.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Tokenize.txt"
@@ -360,6 +360,9 @@ TrainingTagger /corpus_utf16.txt
 
 Command line for Uncompress_1.ulp
 Uncompress /motsGramf-.bin
+
+Command line for UnPreprocess.ulp
+UnPreprocess --original_file=.\demo.txt --processed_file=.\corpus.txt --preprocessed_offset=.\offsetA.txt --processed_offset=.\offsetB.txt .\UnPreprocessRes.txt --output_offsets=.\offset_unpresprocess.txt
 
 Command line for Untokenize.ulp
 Untokenize /test.txt -d /test_snt/
