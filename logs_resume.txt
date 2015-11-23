@@ -362,7 +362,7 @@ Command line for Uncompress_1.ulp
 Uncompress /motsGramf-.bin
 
 Command line for UnPreprocess.ulp
-UnPreprocess --original_file=.\demo.txt --processed_file=.\corpus.txt --preprocessed_offset=.\offsetA.txt --processed_offset=.\offsetB.txt .\UnPreprocessRes.txt --output_offsets=.\offset_unpresprocess.txt
+UnPreprocess --original_file=corpus\predemo.txt --processed_file=corpus\corpus.txt --preprocessed_offset=corpus\offsetA.txt --processed_offset=corpus\offsetB.txt corpus\UnPreprocessRes.txt --output_offsets=corpus\offset_unpresprocess.txt
 
 Command line for Untokenize.ulp
 Untokenize /test.txt -d /test_snt/
