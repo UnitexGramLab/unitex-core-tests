@@ -70,12 +70,6 @@ Dico -t/home/paumier/unitex/KoreanJeeSun/Corpus/test.snt -a/home/paumier/unitex/
 Command line for DumpOffsets_Denormalize.ulp
 DumpOffsets -d -r/Norm.txt -o /Corpus/A.txt -n /Corpus/A_csc.raw /Corpus/A_csc_raw_offsets_merged_4.txt --full -p /corpus_raw_denorm.txt
 
-Command line for DumpOffsets_DenormalizeNew.ulp
-DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
-
-Command line for DumpOffsets_DenormalizeOld.ulp
-DumpOffsets -d -r\Norm.txt -o \Corpus\A.txt -n \Corpus\A_csc.raw \Corpus\A_csc_raw_offsets_merged_4.txt --full -p \corpus_raw_denorm.txt
-
 Command line for ElagComp_1.ulp
 ElagComp "-g/My Unitex/French/Elag/elag-tu.fst2" "-l/My Unitex/French/Elag/tagset.def"
 
@@ -140,10 +134,13 @@ Command line for Fst2Txt_5.ulp
 Fst2Txt "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.fst2" "-a/My Unitex/French/Alphabet.txt" -R
 
 Command line for Grf2Fst2debug_2.ulp
-Grf2Fst2 --debug "\My Unitex\French\Graphs\Preprocessing\Replace\Replace.grf" -y "--alphabet=\My Unitex\French\Alphabet.txt"
+Grf2Fst2 --debug "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
 
 Command line for Grf2Fst2debug_5.ulp
-Grf2Fst2 --debug "\My Unitex\Norwegian\Graphs\Preprocessing\Sentence\Sentence.grf" -y "--alphabet=\My Unitex\Norwegian\Alphabet.txt"
+Grf2Fst2 --debug "/My Unitex/Norwegian/Graphs/Preprocessing/Sentence/Sentence.grf" -y "--alphabet=/My Unitex/Norwegian/Alphabet.txt"
+
+Command line for Grf2Fst2debug_7.ulp
+Grf2Fst2 --debug "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
 
 Command line for Grf2Fst2_1.ulp
 Grf2Fst2 "/My Unitex/French/Graphs/Preprocessing/Sentence/Sentence.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
@@ -210,6 +207,9 @@ Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/Fre
 
 Command line for Locate_korean.ulp
 Locate -t/home/paumier/unitex/Korean/Corpus/1-2.snt /home/paumier/unitex/Korean/Dela/NSall-r.fst2 -a/home/paumier/unitex/Korean/Alphabet.txt -L -R --all -K -m/home/paumier/unitex/Korean/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-04-DS-201007flx.bin -b -Y
+
+Command line for log_laporte.ulp
+LocateTfst "-tC:\Users\laporte\Documents\svg\Unitex\Korean\Corpus\1-Creative writing-NF-25000_snt\text.tfst" C:\Users\laporte\Documents\svg\Unitex\Korean\regexp.fst2 -aC:\Users\laporte\Documents\svg\Unitex\Korean\Alphabet.txt -L -I -n200 -K -b -Y -qutf8-no-bom
 
 Command line for miniTestCassys.ulp
 Cassys -a /Alphabet.txt -t /Corpus/mini80jours/mini80jours_csc.snt -l /CasSys/mini_synthese.csc -qutf8-no-bom -r /Graphs/ --realign_token_graph_pointer
@@ -342,9 +342,6 @@ Tfst2Grf /home/anto/unitex/French/Corpus/80jours_snt/text.tfst -s1 "-fTimes New 
 
 Command line for Tfst2Unambig_1.ulp
 Tfst2Unambig "/My Unitex/Norwegian/Corpus/folkeeventyr_snt/text.tfst" "-o/My Unitex/Norwegian/Corpus/linear.txt"
-
-Command line for thebug.ulp
-Fst2Txt -t .\Corpus4\unitexInput.snt -a .\Alphabet.txt -x -w -R --output_offsets .\Corpus4\sntoffsets_2.txt .\Replace.fst2
 
 Command line for Tokenize_1.ulp
 Tokenize "/My Unitex/French/Corpus/80jours.snt" "-a/My Unitex/French/Alphabet.txt" "--input_offsets=/My Unitex/French/Corpus/80jours_offset_Fst2Txt2.txt" "--output_offsets=/My Unitex/French/Corpus/80jours_offset_Tokenize.txt"
