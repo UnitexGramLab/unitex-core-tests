@@ -139,6 +139,12 @@ Fst2Txt "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "/My Unitex/Frenc
 Command line for Fst2Txt_5.ulp
 Fst2Txt "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.fst2" "-a/My Unitex/French/Alphabet.txt" -R
 
+Command line for Grf2Fst2debug_2.ulp
+Grf2Fst2 --debug "\My Unitex\French\Graphs\Preprocessing\Replace\Replace.grf" -y "--alphabet=\My Unitex\French\Alphabet.txt"
+
+Command line for Grf2Fst2debug_5.ulp
+Grf2Fst2 --debug "\My Unitex\Norwegian\Graphs\Preprocessing\Sentence\Sentence.grf" -y "--alphabet=\My Unitex\Norwegian\Alphabet.txt"
+
 Command line for Grf2Fst2_1.ulp
 Grf2Fst2 "/My Unitex/French/Graphs/Preprocessing/Sentence/Sentence.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
 
