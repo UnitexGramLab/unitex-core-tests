@@ -133,15 +133,6 @@ Fst2Txt "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "/My Unitex/Frenc
 Command line for Fst2Txt_5.ulp
 Fst2Txt "-t/My Unitex/French/Corpus/Un scandale en boheme.snt" "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.fst2" "-a/My Unitex/French/Alphabet.txt" -R
 
-Command line for Grf2Fst2debug_2.ulp
-Grf2Fst2 --debug "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
-
-Command line for Grf2Fst2debug_5.ulp
-Grf2Fst2 --debug "/My Unitex/Norwegian/Graphs/Preprocessing/Sentence/Sentence.grf" -y "--alphabet=/My Unitex/Norwegian/Alphabet.txt"
-
-Command line for Grf2Fst2debug_7.ulp
-Grf2Fst2 --debug "/My Unitex/French/Graphs/Preprocessing/Replace/Replace.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
-
 Command line for Grf2Fst2_1.ulp
 Grf2Fst2 "/My Unitex/French/Graphs/Preprocessing/Sentence/Sentence.grf" -y "--alphabet=/My Unitex/French/Alphabet.txt"
 
@@ -207,9 +198,6 @@ Locate -t/home/paumier/unitex/French/Corpus/80jours.snt /home/paumier/unitex/Fre
 
 Command line for Locate_korean.ulp
 Locate -t/home/paumier/unitex/Korean/Corpus/1-2.snt /home/paumier/unitex/Korean/Dela/NSall-r.fst2 -a/home/paumier/unitex/Korean/Alphabet.txt -L -R --all -K -m/home/paumier/unitex/Korean/Dela/DECO-01-NS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-02-AS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-03-VS-201007flx.bin -m/home/paumier/unitex/Korean/Dela/DECO-04-DS-201007flx.bin -b -Y
-
-Command line for log_laporte.ulp
-LocateTfst "-tC:\Users\laporte\Documents\svg\Unitex\Korean\Corpus\1-Creative writing-NF-25000_snt\text.tfst" C:\Users\laporte\Documents\svg\Unitex\Korean\regexp.fst2 -aC:\Users\laporte\Documents\svg\Unitex\Korean\Alphabet.txt -L -I -n200 -K -b -Y -qutf8-no-bom
 
 Command line for miniTestCassys.ulp
 Cassys -a /Alphabet.txt -t /Corpus/mini80jours/mini80jours_csc.snt -l /CasSys/mini_synthese.csc -qutf8-no-bom -r /Graphs/ --realign_token_graph_pointer
