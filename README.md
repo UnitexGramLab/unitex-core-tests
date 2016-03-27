@@ -9,8 +9,9 @@ before send a pull-request.
 
 ## Dependencies
 
-1. Make sure you have already compiled the `UnitexToolLogger` binary, if not
-   follow the instructions on the [Unitex Core][unitex-core] repository.
+1. Make sure you have already compiled the `UnitexToolLogger` binary, if not  follow the 
+   instructions on the [Unitex Core][unitex-core] to compile the executable including debug
+   symbols.
    
 1. Make sure you have already installed Valgrind:
 
