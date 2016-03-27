@@ -17,7 +17,7 @@ before send a pull-request.
   - On OS-X, use `brew install --HEAD valgrind`
   - On Debian/Ubuntu, use `apt-get install valgrind`
   - On Fedora/RHEL, use `yum install valgrind `
-  - To install from the sources see [here](http://valgrind.org/docs/manual/dist.install.html)
+  - To install Valgrind from the sources see [here](http://valgrind.org/docs/manual/dist.install.html)
 
 ## Running Tests
 
@@ -35,7 +35,7 @@ Start cloning the GitHub repository and setting the `UNITEX_BIN` environment var
 
     ./test.sh Compress
 
-### Running a test
+### Running a single test
 
     ./test.sh Compress/Compress_bin2.ulp
 
@@ -95,8 +95,8 @@ Contact unitex-devel@univ-mlv.fr for further inquiries.
 
 ## Contributing Tests
 
-If your are developing a new Unitex Core functionality you can, and should,
-contribute tests which include your module. To contribute: [Fork us](https://github.com/UnitexGramLab/gramlab-ide/fork)
+If your are developing or improving a Unitex Core functionality you can, and should,
+contribute tests for it. To contribute: [Fork us](https://github.com/UnitexGramLab/gramlab-ide/fork)
 and [request a pull](https://github.com/UnitexGramLab/gramlab-ide/pulls) to
 the [develop branch](https://github.com/UnitexGramLab/gramlab-ide/tree/develop).
 
