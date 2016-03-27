@@ -4,12 +4,9 @@
 *
 
 # But not these files...
-!*/
 !.gitignore
 !LICENSE
 !README.md
 !*.sh
 !*.ulp
-
-# Even if they are in subdirectories
-**/
+!*/
