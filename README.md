@@ -44,6 +44,13 @@ Start cloning the GitHub repository and setting the `UNITEX_BIN` environment var
 
 To create a new .ulp test see the section "13.1 Creating log files" on the
 [Unitex/GramLab User's Manual](http://releases.unitexgramlab.org/latest-stable/man/).
+
+## Contributing Tests
+
+If your are developing or improving a Unitex Core functionality you can, and should,
+contribute tests for it. To contribute: [Fork us](https://github.com/UnitexGramLab/gramlab-ide/fork)
+and [request a pull](https://github.com/UnitexGramLab/gramlab-ide/pulls) to
+the [develop branch](https://github.com/UnitexGramLab/gramlab-ide/tree/develop).
     
 ## Documentation
 
@@ -93,13 +100,6 @@ tools) always use "Unitex/GramLab".
 
 This program is licensed under the [GNU Lesser General Public License version 2.1](/LICENSE). 
 Contact unitex-devel@univ-mlv.fr for further inquiries.
-
-## Contributing Tests
-
-If your are developing or improving a Unitex Core functionality you can, and should,
-contribute tests for it. To contribute: [Fork us](https://github.com/UnitexGramLab/gramlab-ide/fork)
-and [request a pull](https://github.com/UnitexGramLab/gramlab-ide/pulls) to
-the [develop branch](https://github.com/UnitexGramLab/gramlab-ide/tree/develop).
 
 --
 
