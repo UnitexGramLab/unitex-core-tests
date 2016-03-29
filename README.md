@@ -13,7 +13,7 @@ before send a pull-request.
    instructions on the [Unitex Core][unitex-core] repository to compile `UnitexToolLogger`
    including debug symbols.
    
-1. Make sure you have already installed Valgrind:
+1. Make sure you have already installed `valgrind`:
 
   - On OS-X, use `brew install --HEAD valgrind`
   - On Debian/Ubuntu, use `apt-get install valgrind`
