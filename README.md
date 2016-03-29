@@ -48,9 +48,9 @@ To create a new .ulp test see the section "13.1 Creating log files" on the
 ## Contributing Tests
 
 If your are developing or improving a Unitex Core functionality you can, and should,
-contribute tests for it. To contribute: [Fork us](https://github.com/UnitexGramLab/gramlab-ide/fork)
-and [request a pull](https://github.com/UnitexGramLab/gramlab-ide/pulls) to
-the [develop branch](https://github.com/UnitexGramLab/gramlab-ide/tree/develop).
+contribute tests for it. To contribute: [Fork us](https://github.com/UnitexGramLab/unitex-core-tests/fork)
+and [request a pull](https://github.com/UnitexGramLab/unitex-core-tests/pulls) to
+the [master branch](https://github.com/UnitexGramLab/unitex-core-tests/tree/master).
     
 ## Documentation
 
