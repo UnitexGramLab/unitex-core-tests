@@ -26,7 +26,7 @@ Start cloning the GitHub repository and setting the `UNITEX_BIN` environment var
 
     git clone https://github.com/UnitexGramLab/unitex-core-tests
     cd unitex-core-tests
-    export UNITEX_BIN="/foo/bar/App/UnitexToolLogger"
+    export UNITEX_BIN=/foo/bar/App/UnitexToolLogger
 
 ### Running all tests
 
