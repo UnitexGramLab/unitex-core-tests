@@ -22,10 +22,13 @@ before send a pull-request.
 
 ## Running Tests
 
-Start cloning the GitHub repository and setting the `UNITEX_BIN` environment variable:
+Start cloning the GitHub repository:
 
     git clone https://github.com/UnitexGramLab/unitex-core-tests
     cd unitex-core-tests
+
+Then, set the `UNITEX_BIN` environment variable:
+    
     export UNITEX_BIN=/foo/bar/App/UnitexToolLogger
 
 ### Running all tests
