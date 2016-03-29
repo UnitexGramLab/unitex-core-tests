@@ -30,15 +30,15 @@ Start cloning the GitHub repository and setting the `UNITEX_BIN` environment var
 
 ### Running all tests
 
-    ./test.sh
+    ./unitex-core-test.sh
 
 ### Running a group of tests
 
-    ./test.sh Compress
+    ./unitex-core-test.sh Compress
 
 ### Running a single test
 
-    ./test.sh Compress/Compress_bin2.ulp
+    ./unitex-core-test.sh Compress/Compress_bin2.ulp
 
 ## Creating Tests
 
