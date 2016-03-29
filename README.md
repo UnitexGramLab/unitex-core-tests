@@ -18,7 +18,7 @@ before send a pull-request.
   - On OS-X, use `brew install --HEAD valgrind`
   - On Debian/Ubuntu, use `apt-get install valgrind`
   - On Fedora/RHEL, use `yum install valgrind `
-  - To install Valgrind from sources check [here](http://valgrind.org/docs/manual/dist.install.html)
+  - To install `valgrind` from sources check [here](http://valgrind.org/docs/manual/dist.install.html)
 
 ## Running Tests
 
