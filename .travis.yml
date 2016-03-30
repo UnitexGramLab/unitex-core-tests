@@ -64,6 +64,7 @@ before_install:
 install:
   - "./shellcheck-install.sh"
 
+# overwrite the default build step
 script:
   - "./shellcheck-check.sh"
   - "./unitex-core-test.sh -p1"
