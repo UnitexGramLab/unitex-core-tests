@@ -7,7 +7,7 @@ run after a commit or before a nightly build release to check the [Unitex Core][
 compilation. These tests should be run by the contributors before send a pull-request.
 
 <p align="center">
-  <img src="http://www-igm.univ-mlv.fr/~unitex/img/unitex-core-tests.png" width="50%" height="50%" alt="Unitex Core Tests"/>
+  <img src="http://www-igm.univ-mlv.fr/~unitex/img/unitex-core-test.png" width="50%" height="50%" alt="Unitex Core Tests"/>
 </p>
 
 ## Dependencies
