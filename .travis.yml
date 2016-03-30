@@ -36,7 +36,16 @@ matrix:
       compiler: "gcc47"
       env: CXX=g++-4.7
       addons: *gcc47
-
+  exclude:
+    - os: osx    
+      compiler: gcc
+    - os: osx    
+      compiler: clang
+    - os: linux    
+      compiler: gcc
+    - os: clang    
+      compiler: clang      
+      
 notifications:
   email:
     recipients:
