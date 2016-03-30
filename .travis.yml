@@ -55,7 +55,7 @@ notifications:
 
 before_install:
  - echo ${CXX}
- - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_GIT_REVISION=$(git describe --always HEAD) && mkdir bin && cd build && make SYSTEM=linux-like 64BITS=yes DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd .. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
+ - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_GIT_REVISION=$(git describe --always HEAD) && mkdir bin && cd build && make DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd .. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
  - echo ${UNITEX_BIN} 
  - echo ${UNITEX_CORE_GIT_REVISION}
 
