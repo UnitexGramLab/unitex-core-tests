@@ -124,6 +124,8 @@ tools) always use "Unitex/GramLab".
 
 ## License
 
+<a href="/LICENSE"><img height="48" align="left" src="http://www.gnu.org/graphics/empowered-by-gnu.svg"></a>
+
 This program is licensed under the [GNU Lesser General Public License version 2.1](/LICENSE). 
 Contact unitex-devel@univ-mlv.fr for further inquiries.
 
