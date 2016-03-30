@@ -10,22 +10,23 @@ language: cpp
 # sudo: false instructs travis to build our project in a docker VM (faster)
 sudo: required
 
+# only available on private builds
+cache:
+ - apt
+
 # Save common build configurations as shortcuts, so we can reference them later.
 addons_shortcuts:
   addons_clang35: &clang35
     apt:
       sources: [ 'ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.5' ]
-      packages: [ 'clang-3.5', 'cmake' ]
+      packages: [ 'clang-3.5', 'cmake', 'cppcheck' ]
   addons_gcc47: &gcc47
     apt:
       sources: [ 'ubuntu-toolchain-r-test' ]
-      packages: [ 'g++-4.7', 'gcc-4.7', 'cmake' ]
+      packages: [ 'g++-4.7', 'gcc-4.7', 'cmake', 'cppcheck' ]
 
 matrix:
   include:
-    - os: osx
-      osx_image: xcode6
-      compiler: clang
     - os: linux
       dist: trusty
       compiler: "clang35"
@@ -37,10 +38,6 @@ matrix:
       env: CXX=g++-4.7
       addons: *gcc47
   exclude:
-    - os: osx    
-      compiler: gcc
-    - os: osx    
-      compiler: clang
     - os: linux    
       compiler: gcc
     - os: clang    
@@ -57,6 +54,7 @@ notifications:
 
 before_install:
  - echo ${CXX}
+ - export PATH=~/usr/bin:$PATH 
 
 install:
   - "./shellcheck-install.sh"
