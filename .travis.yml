@@ -8,7 +8,7 @@
 language: cpp
 
 # sudo: false instructs travis to build our project in a docker VM (faster)
-sudo: false
+sudo: required
 
 # os: expands the build matrix to include multiple os's
 os:
