@@ -3,6 +3,7 @@
 
 # But not these files...
 !.gitignore
+!.travis.yml
 !LICENSE
 !README.md
 !*.sh
@@ -12,3 +13,4 @@
 
 # Excepting...
 *.rerun.ulp
+
