@@ -49,17 +49,18 @@ Then, set the `UNITEX_BIN` environment variable:
               default=1
       -h    : display this help and exit
       
-### Running all tests
+## Examples
 
-    ./unitex-core-test.sh
-
-### Running a group of tests
-
-    ./unitex-core-test.sh Compress
-
-### Running a single test
-
-    ./unitex-core-test.sh Compress/Compress_bin2.ulp
+| Command                                                  | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+| `./unitex-core-test.sh`                                  | Run all non-regression tests available                   |
+| `./unitex-core-test.sh Compress`                         | Run all `Compress` non-regression tests                  |
+| `./unitex-core-test.sh Compress/Compress_bin2.ulp`       | Run `Compress_bin2.ulp` non-regression test              |
+| `./unitex-core-test.sh -M1`                              | Run also all memory error detection tests                |
+| `./unitex-core-test.sh -M1 Compress`                     | Run also `Compress` memory error detection tests         |
+| `./unitex-core-test.sh -M1 Compress/Compress_bin2.ulp`   | Run also `Compress_bin2.ulp` memory error detection test |
+| `./unitex-core-test.sh -c0`                              | Disable ANSI color codes                                 |
+| `./unitex-core-test.sh -p1`                              | If an error was detetected, print the log to the stdout  |
 
 ## Creating Tests
 
