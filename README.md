@@ -6,6 +6,10 @@ This repository contains some non-regression and memory error detection tests wh
 run periodically to validate the [Unitex Core][unitex-core] after each commit or nightly
 build. These tests should be run by the contributors before send a pull-request.
 
+<p align="center">
+  <img src="http://www-igm.univ-mlv.fr/~unitex/img/unitex-core-tests.png" width="50%" height="50%" alt="Unitex Core Tests"/>
+</p>
+
 ## Dependencies
 
 1. Make sure you have already a `UnitexToolLogger` binary built including debug symbols with no optimization, 
