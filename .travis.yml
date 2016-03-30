@@ -62,4 +62,4 @@ install:
 
 script:
   - "./shellcheck-check.sh"
-  - "./unitex-core-test.sh -p1 -M1"
+  - "./unitex-core-test.sh -p1"
