@@ -1,14 +1,95 @@
 # add by martinec
-os: linux
-dist: trusty
+# based on:
+# https://github.com/mapbox/protozero/blob/master/.travis.yml
+# https://github.com/dftlibs/xcfun/blob/master/.travis.yml
+# https://github.com/clMathLibraries/clBLAS/blob/master/.travis.yml
 
+# language: instructs travis what compilers && environment to set up in build matrix
 language: cpp
 
-compiler:
-- clang
-- gcc
+# sudo: false instructs travis to build our project in a docker VM (faster)
+sudo: false
 
-sudo: required
+# os: expands the build matrix to include multiple os's
+os:
+  - linux
+  - osx
+
+# compiler: expands the build matrix to include multiple compilers (per os)
+compiler:
+  - gcc
+  - clang  
+
+# Save common build configurations as shortcuts, so we can reference them later.
+addons_shortcuts:
+  addons_clang35: &clang35
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-3.5' ]
+      packages: [ 'clang-3.5', 'cmake' ]
+  addons_clang38: &clang38
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test', 'llvm-toolchain-trusty' ]
+      packages: [ 'clang-3.8', 'cmake' ]
+  addons_gcc49: &gcc47
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test' ]
+      packages: [ 'g++-4.7', 'gcc-4.7', 'cmake' ]
+  addons_gcc49: &gcc48
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test' ]
+      packages: [ 'g++-4.8', 'gcc-4.8', 'cmake' ]
+  addons_gcc49: &gcc49
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test' ]
+      packages: [ 'g++-4.9', 'gcc-4.9', 'cmake' ]
+  addons_gcc49: &gcc5
+    apt:
+      sources: [ 'ubuntu-toolchain-r-test' ]
+      packages: [ 'g++-5', 'gcc-5', 'cmake' ]
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode6
+      compiler: clang
+    - os: osx
+      osx_image: xcode7
+      compiler: clang
+    - os: linux
+      dist: trusty
+      compiler: "clang35"
+      env: CXX=clang++-3.5
+      addons: *clang35
+    - os: linux
+      dist: trusty
+      compiler: "clang38"
+      env: CXX=clang++-3.8
+      addons: *clang38
+    - os: linux
+      dist: trusty
+      compiler: "gcc47"
+      env: CXX=g++-4.7
+      addons: *gcc47
+    - os: linux
+      dist: trusty
+      compiler: "gcc48"
+      env: CXX=g++-4.8
+      addons: *gcc48
+    - os: linux
+      dist: trusty
+      compiler: "gcc49"
+      env: CXX=g++-4.9 COVERAGE=gcov-4.9
+      addons: *gcc49
+    - os: linux
+      dist: trusty
+      compiler: "gcc5"
+      env: CXX=g++-5 CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=0"
+      addons: *gcc5
+    - os: linux
+      dist: trusty
+      compiler: "gcc5"
+      env: CXX=g++-5 CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=1"
+      addons: *gcc5
 
 notifications:
   email:
