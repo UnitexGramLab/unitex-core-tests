@@ -8,18 +8,17 @@ build. These tests should be run by the contributors before send a pull-request.
 
 ## Dependencies
 
-1. Make sure you have already the `UnitexToolLogger` binary, if not follow the 
-   instructions on the [Unitex Core][unitex-core] repository to compile `UnitexToolLogger`
-   including debug symbols.
+1. Make sure you have already a `UnitexToolLogger` binary compiled including debug symbols, 
+   if not follow the  instructions on the [Unitex Core][unitex-core] to compile it.
    
-1. Make sure you have already installed `valgrind`:
+1. To detect memory errors, you will need the [Valgrind](http://valgrind.org) suite of tools installed on your system:
 
   - On OS-X, use `brew install --HEAD valgrind`
   - On Debian/Ubuntu, use `apt-get install valgrind`
   - On Fedora/RHEL, use `yum install valgrind `
   - To install `valgrind` from sources check [here](http://valgrind.org/docs/manual/dist.install.html)
-
-## Running Tests
+ 
+## Getting Started
 
 Start cloning the GitHub repository:
 
@@ -29,7 +28,27 @@ Start cloning the GitHub repository:
 Then, set the `UNITEX_BIN` environment variable:
     
     export UNITEX_BIN=/foo/bar/App/UnitexToolLogger
+    
+## Usage
 
+    Usage:
+      unitex-core-test.sh [OPTIONS] [DIRECTORY|ULP_FILE]
+    Options:
+      -M n  : enable or disable memory error detection tests
+              default=0
+      -R n  : enable or disable non-regression tests
+              default=1
+      -c n  : use or not ANSI color codes
+              default=1
+      -p n  : print execution logs to stdout
+              0 print none
+              1 print if error
+              2 always print
+              default=0
+      -v n  : manually set the verbosity level 0...7
+              default=1
+      -h    : display this help and exit
+      
 ### Running all tests
 
     ./unitex-core-test.sh
