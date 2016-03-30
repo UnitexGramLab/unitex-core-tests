@@ -15,6 +15,10 @@ sudo: required
 cache:
  - apt
 
+# Travis CI clones repositories to a depth of 50 commits
+git:
+  depth: 3 
+
 # Save common build configurations as shortcuts, so we can reference them later.
 addons_shortcuts:
   addons_clang35: &clang35
