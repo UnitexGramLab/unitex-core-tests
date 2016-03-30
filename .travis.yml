@@ -31,6 +31,9 @@ addons_shortcuts:
       packages: [ 'g++-4.8', 'gcc-4.8', 'cmake', 'cppcheck', 'valgrind' ]
 
 matrix:
+  # if a rows in the build matrix fails, set
+  # the build to finish as soon as possible
+  fast_finish: true
   include:
     - os: linux
       dist: trusty
