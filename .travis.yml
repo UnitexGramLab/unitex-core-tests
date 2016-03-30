@@ -8,7 +8,7 @@
 # language: instructs travis what compilers && environment to set up in build matrix
 language: cpp
 
-# sudo: false instructs travis to build our project in a docker VM (faster)
+# sudo: false instructs Travis to build our project in a docker VM (faster)
 sudo: required
 
 # only available on private builds
