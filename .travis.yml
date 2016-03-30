@@ -10,16 +10,6 @@ language: cpp
 # sudo: false instructs travis to build our project in a docker VM (faster)
 sudo: required
 
-# os: expands the build matrix to include multiple os's
-os:
-  - linux
-  - osx
-
-# compiler: expands the build matrix to include multiple compilers (per os)
-compiler:
-  - gcc
-  - clang  
-
 # Save common build configurations as shortcuts, so we can reference them later.
 addons_shortcuts:
   addons_clang35: &clang35
