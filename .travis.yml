@@ -54,7 +54,9 @@ notifications:
 
 before_install:
  - echo ${CXX}
- - export PATH=~/usr/bin:$PATH 
+ - git clone https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_GIT_REVISION=$(git describe --always HEAD) && mkdir bin && cd build && make SYSTEM=linux-like 64BITS=yes DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd .. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
+ - echo ${UNITEX_BIN} 
+ - echo ${UNITEX_CORE_GIT_REVISION}
 
 install:
   - "./shellcheck-install.sh"
