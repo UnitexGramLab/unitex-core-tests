@@ -6,7 +6,7 @@
 # https://github.com/Automattic/_s/blob/master/.travis.yml
 
 # language: instructs travis what compilers && environment to set up in build matrix
-language: cpp
+language: c
 
 # sudo: false instructs travis to build our project in a docker VM (faster)
 sudo: required
