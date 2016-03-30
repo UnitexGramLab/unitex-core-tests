@@ -8,7 +8,7 @@ build. These tests should be run by the contributors before send a pull-request.
 
 ## Dependencies
 
-1. Make sure you have already a `UnitexToolLogger` binary compiled including debug symbols, 
+1. Make sure you have already a `UnitexToolLogger` binary built including debug symbols with no optimization, 
    if not follow the  instructions on the [Unitex Core][unitex-core] to compile it.
    
 1. To detect memory errors, you will need the [Valgrind](http://valgrind.org) suite of tools installed on your system:
