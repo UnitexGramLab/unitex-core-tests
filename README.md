@@ -53,7 +53,7 @@ Then, set the `UNITEX_BIN` environment variable:
 
 | Command                                                  | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- |
-| `./unitex-core-test.sh`                                  | Run all non-regression tests available                   |
+| `./unitex-core-test.sh`                                  | Run all non-regression tests                             |
 | `./unitex-core-test.sh Compress`                         | Run all `Compress` non-regression tests                  |
 | `./unitex-core-test.sh Compress/Compress_bin2.ulp`       | Run `Compress_bin2.ulp` non-regression test              |
 | `./unitex-core-test.sh -M1`                              | Run also all memory error detection tests                |
