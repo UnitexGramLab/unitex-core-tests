@@ -860,8 +860,8 @@ log_header() {
             "\r# (%%) debug, (II) information, (!!) notice,   (WW) warning,\n" \
             "\r# (EE) error, (CC) critical,    (^^) alert,    (@@) panic"
   } >&3
-  if [ -n "${UNITEX_CORE_GIT_REVISION+1}" ]; then
-     log_info "Unitex Core" "$UNITEX_CORE_REPOSITORY/commit/$UNITEX_CORE_GIT_REVISION"
+  if [ -n "${UNITEX_CORE_VERSION_GIT_COMMIT_HASH+1}" ]; then
+     log_info "Unitex Core" "$UNITEX_CORE_REPOSITORY/commit/$UNITEX_CORE_VERSION_GIT_COMMIT_HASH"
   else
    log_info "Unitex Core" "$($UNITEX_BIN VersionInfo -s)"
   fi
