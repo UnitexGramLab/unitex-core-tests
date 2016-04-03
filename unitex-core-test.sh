@@ -175,9 +175,7 @@ check_bash_version() {
   #          $bash_version_major * (major <= +INF)
   # 100000 + $bash_version_minor * (minor <= 99)
   # 1000   + $bash_version_patch   (patch <= 999)
-  local -r bash_version_number=$(echo "$bash_version_major  * 100000 \
-                                     + $bash_version_minor  * 1000 + \
-                                       $bash_version_patch" | bc)
+  local -r bash_version_number=$((bash_version_major * 100000 + bash_version_minor * 1000 + bash_version_patch))
 
   # check bash version
   if [ "$bash_version_number" -lt "$UNITEX_TEST_MINIMAL_BASH_VERSION_NUMBER" ]; then
