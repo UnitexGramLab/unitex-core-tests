@@ -6,3 +6,8 @@
 
 # force conversion to Windows format
 *.bat           eol=crlf
+
+# for the next files NOT found below, normalize CRLF into LF
+*.gitattributes text
+.gitignore      text
+*.md            text
