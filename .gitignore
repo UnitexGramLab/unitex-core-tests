@@ -10,7 +10,7 @@
 !*.bat
 !*.ulp
 !*/
-!logs_resume.txt
+!command_line_summary.log
 
 # Excepting...
 *.rerun.ulp
