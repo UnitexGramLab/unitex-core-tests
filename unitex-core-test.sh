@@ -903,13 +903,14 @@ print_log_header() {
   fi
   log_info "Unitex Core Tests"   "$UNITEX_TEST_REPOSITORY/commit/$(git describe --always HEAD)"
 
- if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
-  {
-   echo -e "# $UNITEX_TEST_CODENAME / Commmand Line Summary / $TIMESTAMP_START_C\n"
-   log_info "Command Line Summary" "Command line summary saved in $UNITEX_TEST_COMMAND_LINE_LOG_FILE"
-  } > "$UNITEX_TEST_COMMAND_LINE_LOG_FILE"
- fi
- 
+  log_info "Workspace" "The log workspace is located at $UNITEX_TEST_LOG_RELATIVE_WORKSPACE"
+
+  if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
+    {
+      echo -e "# $UNITEX_TEST_CODENAME / Commmand Line Summary / $TIMESTAMP_START_C\n"
+      log_info "Command Line Summary" "Command line summary saved in $UNITEX_TEST_COMMAND_LINE_LOG_FILE"
+    } > "$UNITEX_TEST_COMMAND_LINE_LOG_FILE"
+  fi 
 }
 # =============================================================================
 # create a temporal workspace
@@ -920,14 +921,11 @@ create_temporal_workspace() {
     die_with_critical_error "Unrecoverable error" "Error creating temporal workspace directory"
   fi
   UNITEX_TEST_LOG_RELATIVE_WORKSPACE=$($UNITEX_TEST_TOOL_PRINTF "$UNITEX_TEST_LOG_WORKSPACE" |\
-                                       sed -e "s|$UNITEX_TEST_SCRIPT_BASEDIR/||g" )  
+                                       sed -e "s|$UNITEX_TEST_SCRIPT_BASEDIR/||g" )
 }
 # =============================================================================
 # main
 # =============================================================================
-# create a temporal workspace
-create_temporal_workspace
-
 # process command line arguments in $@
 process_command_line "$@"
 
@@ -939,6 +937,9 @@ push_streams
 
 # install interrupt (INT) and terminate (TERM) traps
 setup_script_traps
+
+# create a temporal workspace
+create_temporal_workspace
 
 # print log header
 print_log_header
