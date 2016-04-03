@@ -547,6 +547,7 @@ process_command_line() {
   if   [ -d "$UNITEX_TEST_TARGET" ]; then
     UNITEX_TEST_FILES="$(find -L   "$UNITEX_TEST_TARGET"                           \
                         -not -name ".*"                                            \
+                        -not -name "*.rerun.ulp"                                   \
                              -name "*$UNITEX_TEST_ULP_EXTENSION"                   \
                              -type f -print                                       |\
                          sort)"
@@ -775,7 +776,7 @@ unitex_tests_run() {
   # command-line summary
   if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
     while read -r i ; do
-      log_info "Reading command line" "Reading ${i//$UNITEX_TEST_SCRIPT_BASEDIR\//}"
+      log_debug "Reading command line" "Reading ${i//$UNITEX_TEST_SCRIPT_BASEDIR\//}"
       {
        echo  -e "# ${i//$UNITEX_TEST_SCRIPT_BASEDIR\//}"
        unzip -p "$i" "test_info/command_line_synth.txt"
