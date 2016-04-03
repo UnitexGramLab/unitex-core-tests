@@ -574,15 +574,15 @@ process_command_line() {
      UNITEX_TEST_TOOL_BIN="$UNITEX_BIN"
   fi
 
-  # UNITEX_TEST_TOOL_BIN
-  UNITEX_TEST_TOOL_BIN="$(readlink -f "$UNITEX_TEST_TOOL_BIN")"
-
   # if UnitexToolLogger doesn't exist
   if [ ! -e "$UNITEX_TEST_TOOL_BIN" ]; then
     echo "$(basename "$UNITEX_TEST_TOOL_BIN") not found"
     echo "try e.g. export UNITEX_BIN=/foo/bar/App/$(basename "$UNITEX_TEST_TOOL_BIN")"
     exit $UNITEX_TEST_DEFAULT_ERROR_CODE
   fi
+
+  # UNITEX_TEST_TOOL_BIN
+  UNITEX_TEST_TOOL_BIN="$(readlink -f "$UNITEX_TEST_TOOL_BIN")"
 
   if [ "$UNITEX_TEST_MEMORY_ERRORS" -eq 1 ]; then
     command -v "${UNITEX_TEST_TOOL_VALGRIND}" > /dev/null ||\
