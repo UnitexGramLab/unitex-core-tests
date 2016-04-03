@@ -1,2 +1,8 @@
-# Auto detect text files and perform LF normalization
+# auto detect text files and perform LF normalization
 *               text=auto
+
+# force conversion to Unix format
+*.sh            eol=lf
+
+# force conversion to Windows format
+*.bat           eol=crlf
