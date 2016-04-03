@@ -38,20 +38,29 @@ Then, set the `UNITEX_BIN` environment variable:
     Usage:
       unitex-core-test.sh [OPTIONS] [DIRECTORY|ULP_FILE]
     Options:
-      -M n  : enable or disable memory error detection tests
-              default=0
-      -R n  : enable or disable non-regression tests
-              default=1
-      -c n  : use or not ANSI color codes
-              default=1
-      -p n  : print execution logs to stdout
-              0 print none
-              1 print if error
-              2 always print
-              default=0
-      -v n  : manually set the verbosity level 0...7
-              default=1
-      -h    : display this help and exit
+      -M n    : enable or disable memory error detection tests
+                default=0
+      -R n    : enable or disable non-regression tests
+                default=1
+      -s file : create a command line summary log
+      -c n    : use or not ANSI color codes
+                default=1
+      -p n    : print execution logs to stdout
+                0 print none
+                1 print if error
+                2 always print
+                default=0
+      -v n    : manually set the verbosity level 0...7
+                0 (%%) [debug]       debug message
+                1 (II) [info]rmation purely informational message
+                2 (!!) [notice]      normal but significant condition
+                3 (WW) [warning]     warning condition
+                4 (EE) [error]       error condition
+                5 (CC) [critical]    critical condition
+                6 (^^) [alert]       action must be taken immediately
+                7 (@@) [panic]       unusable condition
+                default=1
+      -h      : display this help and exit
       
 ## Examples
 
@@ -65,6 +74,7 @@ Then, set the `UNITEX_BIN` environment variable:
 | `./unitex-core-test.sh -M1 Compress/Compress_bin2.ulp`   | Run also `Compress_bin2.ulp` memory error detection test |
 | `./unitex-core-test.sh -c0`                              | Disable ANSI color codes                                 |
 | `./unitex-core-test.sh -p1`                              | If an error was detetected, print the log to the stdout  |
+| `./unitex-core-test.sh -s command_summary.log`           | Create a command line log on `command_summary.log`       |
 
 ## Creating Tests
 

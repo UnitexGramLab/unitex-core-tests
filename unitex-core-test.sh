@@ -129,6 +129,7 @@ UNITEX_TEST_PREVIOUS_STDOUT=/dev/stdout
 UNITEX_TEST_LOG_FILE_EXT=".log"
 UNITEX_TEST_ULP_EXTENSION=".ulp"
 UNITEX_TEST_TARGET="$UNITEX_TEST_SCRIPT_BASEDIR"
+UNITEX_TEST_COMMAND_LINE_LOG_FILE=""
 # =============================================================================
 # Default params
 UNITEX_TEST_MEMORY_ERRORS=0
@@ -206,28 +207,29 @@ usage() {
     echo "Usage:"
     echo "  $UNITEX_TEST_SCRIPT_NAME [OPTIONS] [DIRECTORY|ULP_FILE]"
     echo "Options:"
-    echo "  -M n  : enable or disable memory error detection tests"
-    echo "          default=$UNITEX_TEST_MEMORY_ERRORS"
-    echo "  -R n  : enable or disable non-regression tests"
-    echo "          default=$UNITEX_TEST_NON_REGRESSION"
-    echo "  -c n  : use or not ANSI color codes"
-    echo "          default=$UNITEX_TEST_USE_ANSI_COLORS"
-    echo "  -p n  : print execution logs to stdout"
-    echo "          0 print none"
-    echo "          1 print if error"
-    echo "          2 always print"
-    echo "          default=$UNITEX_TEST_PRINT_EXECUTION_LOGS"    
-    echo "  -v n  : manually set the verbosity level 0...7"
-    echo "          0 (%%) [debug]       debug message"
-    echo "          1 (II) [info]rmation purely informational message"
-    echo "          2 (!!) [notice]      normal but significant condition"
-    echo "          3 (WW) [warning]     warning condition"
-    echo "          4 (EE) [error]       error condition"
-    echo "          5 (CC) [critical]    critical condition"
-    echo "          6 (^^) [alert]       action must be taken immediately"
-    echo "          7 (@@) [panic]       unusable condition"
-    echo "          default=$UNITEX_TEST_VERBOSITY"    
-    echo "  -h    : display this help and exit"
+    echo "  -M n    : enable or disable memory error detection tests"
+    echo "            default=$UNITEX_TEST_MEMORY_ERRORS"
+    echo "  -R n    : enable or disable non-regression tests"
+    echo "            default=$UNITEX_TEST_NON_REGRESSION"
+    echo "  -s file : create a command line summary log"
+    echo "  -c n    : use or not ANSI color codes"
+    echo "            default=$UNITEX_TEST_USE_ANSI_COLORS"
+    echo "  -p n    : print execution logs to stdout"
+    echo "            0 print none"
+    echo "            1 print if error"
+    echo "            2 always print"
+    echo "            default=$UNITEX_TEST_PRINT_EXECUTION_LOGS"    
+    echo "  -v n    : manually set the verbosity level 0...7"
+    echo "            0 (%%) [debug]       debug message"
+    echo "            1 (II) [info]rmation purely informational message"
+    echo "            2 (!!) [notice]      normal but significant condition"
+    echo "            3 (WW) [warning]     warning condition"
+    echo "            4 (EE) [error]       error condition"
+    echo "            5 (CC) [critical]    critical condition"
+    echo "            6 (^^) [alert]       action must be taken immediately"
+    echo "            7 (@@) [panic]       unusable condition"
+    echo "            default=$UNITEX_TEST_VERBOSITY"    
+    echo "  -h      : display this help and exit"
     exit $UNITEX_TEST_DEFAULT_ERROR_CODE
 }  # usage()
 # =============================================================================
@@ -473,30 +475,51 @@ create_temporal_directory() {
 # process command line
 process_command_line() {
   # parse command line
-  while getopts "M:R:c:p:v:h?" opt; do
+  while getopts "M:R:s:c:p:v:h?" opt; do
       case "$opt" in
         M)  case $OPTARG in
-               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -M bad value. Valid values are [0-1]"  ;;
+               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -M bad value. Valid values are [0-1]"
+               exit $UNITEX_TEST_DEFAULT_ERROR_CODE
+               ;;
             esac
             UNITEX_TEST_MEMORY_ERRORS=$OPTARG
             ;;
         R)  case $OPTARG in
-               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -R bad value. Valid values are [0-1]"  ;;
+               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -R bad value. Valid values are [0-1]"
+               exit $UNITEX_TEST_DEFAULT_ERROR_CODE
+               ;;
             esac
             UNITEX_TEST_NON_REGRESSION=$OPTARG
             ;;
+        s)  if [[ (-f "$OPTARG" && -w "$OPTARG") || ! -e "$OPTARG" ]]; then
+             touch "$OPTARG" > /dev/null 2>&1 || {
+              echo "cannot create '$OPTARG': No such file or directory"
+              exit $UNITEX_TEST_DEFAULT_ERROR_CODE              
+             }
+            else       
+              echo "./$UNITEX_TEST_SCRIPT_NAME: -l bad value. Expecting a writable file"
+              exit $UNITEX_TEST_DEFAULT_ERROR_CODE              
+            fi
+            UNITEX_TEST_COMMAND_LINE_LOG_FILE="$OPTARG"
+            ;;       
         c)  case $OPTARG in
-               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -c bad value. Valid values are [0-1]"  ;;
+               (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -c bad value. Valid values are [0-1]"
+               exit $UNITEX_TEST_DEFAULT_ERROR_CODE
+               ;;
             esac
             UNITEX_TEST_USE_ANSI_COLORS=$OPTARG
             ;;
         p)  case $OPTARG in
-               (*[!0-2]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -p bad value. Valid values are [0...2]" ;;
+               (*[!0-2]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -p bad value. Valid values are [0...2]"
+               exit $UNITEX_TEST_DEFAULT_ERROR_CODE
+               ;;
             esac
             UNITEX_TEST_PRINT_EXECUTION_LOGS=$OPTARG
             ;;
         v)  case $OPTARG in
-               (*[!0-7]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -v bad value. Valid values are [0...7]" ;;
+               (*[!0-7]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -v bad value. Valid values are [0...7]"
+               exit $UNITEX_TEST_DEFAULT_ERROR_CODE
+               ;;
             esac
             UNITEX_TEST_VERBOSITY=$OPTARG
             ;;
@@ -748,6 +771,18 @@ unitex_tests_run() {
   UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FILENAME=$(basename "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME")
   UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME="$UNITEX_TEST_LOG_WORKSPACE/error_summary$UNITEX_TEST_LOG_FILE_EXT"
   UNITEXTOOLLOGGER_ERROR_SUMMARY_FILENAME=$(basename "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME")
+
+  # command-line summary
+  if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
+    while read -r i ; do
+      log_info "Reading command line" "Reading ${i//$UNITEX_TEST_SCRIPT_BASEDIR\//}"
+      {
+       echo  -e "# ${i//$UNITEX_TEST_SCRIPT_BASEDIR\//}"
+       unzip -p "$i" "test_info/command_line_synth.txt"
+       echo  -e "\n"
+      } >> "$UNITEX_TEST_COMMAND_LINE_LOG_FILE" 2>>"$UNITEX_TEST_COMMAND_LINE_LOG_FILE"
+    done < <(echo "$UNITEX_TEST_FILES")
+  fi  # if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
   
   # non-regression tests
   if [ "$UNITEX_TEST_NON_REGRESSION" -eq 1 ]; then
@@ -840,22 +875,24 @@ unitex_tests_run() {
         log_debug  "Successful execution"  "RunLog under Valgrind does not detect any regression while replaying $UNITEX_TEST_CURRENT_TEST_NAME"
       fi
     done < <(echo "$UNITEX_TEST_FILES")  # for i in "$UNITEX_TEST_TARGET"
+
+    if [ -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" -a \
+         -s "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" ]; then
+      log_warn "Regressions detected" \
+               "Some regression tests did not complete successfully, see $UNITEX_TEST_LOG_RELATIVE_WORKSPACE/$UNITEXTOOLLOGGER_ERROR_SUMMARY_FILENAME for more details"
+    else
+      log_info "No regression" \
+               "All logs were successfully replayed, see $UNITEX_TEST_LOG_RELATIVE_WORKSPACE/$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FILENAME for more details"
+    fi    
   fi  # $UNITEX_TEST_HAS_ERRORS -eq 0 "$UNITEX_TEST_MEMORY_ERRORS" -eq 1
 
-  if [ -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" -a \
-       -s "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" ]; then
-    log_warn "Regressions detected" \
-             "Some regression tests did not complete successfully, see $UNITEX_TEST_LOG_RELATIVE_WORKSPACE/$UNITEXTOOLLOGGER_ERROR_SUMMARY_FILENAME for more details"
-  else
-    log_info "No regression" \
-             "All logs were successfully replayed, see $UNITEX_TEST_LOG_RELATIVE_WORKSPACE/$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FILENAME for more details"
-  fi
+
 }  # function stage_unitex_core_logs_run()
 # =============================================================================
 # print log header
-log_header() {
+print_log_header() {
   {
-    echo -e "# $UNITEX_TEST_CODENAME $TIMESTAMP_START_C\n"                     \
+    echo -e "\r# $UNITEX_TEST_CODENAME / $TIMESTAMP_START_C\n"                 \
             "\r# Markers:\n"                                                   \
             "\r# (%%) debug, (II) information, (!!) notice,   (WW) warning,\n" \
             "\r# (EE) error, (CC) critical,    (^^) alert,    (@@) panic"
@@ -865,7 +902,15 @@ log_header() {
   else
    log_info "Unitex Core" "$($UNITEX_BIN VersionInfo -s)"
   fi
-  log_info "Unitex Core Tests"   "$UNITEX_TEST_REPOSITORY/commit/$(git describe --always HEAD)"  
+  log_info "Unitex Core Tests"   "$UNITEX_TEST_REPOSITORY/commit/$(git describe --always HEAD)"
+
+ if [ -n "${UNITEX_TEST_COMMAND_LINE_LOG_FILE}" ]; then
+  {
+   echo -e "# $UNITEX_TEST_CODENAME / Commmand Line Summary / $TIMESTAMP_START_C\n"
+   log_info "Command Line Summary" "Command line summary saved in $UNITEX_TEST_COMMAND_LINE_LOG_FILE"
+  } > "$UNITEX_TEST_COMMAND_LINE_LOG_FILE"
+ fi
+ 
 }
 # =============================================================================
 # create a temporal workspace
@@ -897,7 +942,7 @@ push_streams
 setup_script_traps
 
 # print log header
-log_header
+print_log_header
 
 # run tests
 unitex_tests_run
