@@ -795,6 +795,8 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                      \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"    \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"   \
+                          -d tempdir                                           \
+                          --clean                                              \
                           --cleanlog || {
                             # save return code
                             RUNLOG_EXIT_STATUS=$?
@@ -847,6 +849,8 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                             \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"           \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"          \
+                          -d tempdir                                                  \
+                          --clean                                                     \
                           --cleanlog || {
                             VALGRIND_EXIT_STATUS=$?
                             VALGRIND_EXECUTION_FAIL=1
