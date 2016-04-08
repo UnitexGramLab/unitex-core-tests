@@ -55,6 +55,8 @@ Then, set the `UNITEX_BIN` environment variable:
                 1 diff if RunLog exists with warning
                 2 diff if RunLog exists with error
                 default=0
+      -w n    : width of the log message when executing commands
+                default=119
       -v n    : manually set the verbosity level 0...7
                 0 (%%) [debug]       debug message
                 1 (II) [info]rmation purely informational message

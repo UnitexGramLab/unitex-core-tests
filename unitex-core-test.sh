@@ -139,6 +139,7 @@ UNITEX_TEST_DIFF_OUTPUT_FILES=0
 UNITEX_TEST_USE_ANSI_COLORS=1
 UNITEX_TEST_DIFF_COLORS="--color"
 UNITEX_TEST_VERBOSITY=1
+UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH=119
 # =============================================================================
 # Default error codes
 UNITEX_TEST_DEFAULT_ERROR_CODE=1
@@ -224,6 +225,8 @@ usage() {
     echo "            1 diff if RunLog exists with warning"
     echo "            2 diff if RunLog exists with error"
     echo "            default=$UNITEX_TEST_DIFF_OUTPUT_FILES"
+    echo "  -w n    : width of the log message when executing commands"
+    echo "            default=$UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH"
     echo "  -v n    : manually set the verbosity level 0...7"
     echo "            0 (%%) [debug]       debug message"
     echo "            1 (II) [info]rmation purely informational message"
@@ -480,7 +483,7 @@ create_temporal_directory() {
 # process command line
 process_command_line() {
   # parse command line
-  while getopts "M:R:s:c:p:d:v:h?" opt; do
+  while getopts "M:R:s:c:p:d:w:v:h?" opt; do
       case "$opt" in
         M)  case $OPTARG in
                (*[!0-1]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -M bad value. Valid values are [0-1]"
@@ -530,6 +533,12 @@ process_command_line() {
                ;;
             esac
             UNITEX_TEST_DIFF_OUTPUT_FILES=$OPTARG
+            ;;
+        w)  if [[ $OPTARG =~ ^[\-0-9]+$ ]] && (( $OPTARG > 0)); then
+              UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH=$OPTARG
+            else
+              echo "./$UNITEX_TEST_SCRIPT_NAME: -w bad value. Valid values are n > 0"
+            fi
             ;;
         v)  case $OPTARG in
                (*[!0-7]*|'') echo "./$UNITEX_TEST_SCRIPT_NAME: -v bad value. Valid values are [0...7]"
@@ -708,12 +717,11 @@ exec_logged_command() {
   # create command line array
   command_line=( $command_name "$command_args" )
 
-  MAX_COMMAND_LINE_LENGTH=119
   pretty_command_name=$(basename "$command_name")
   pretty_command_line=$($UNITEX_TEST_TOOL_PRINTF "$pretty_command_name $pretty_command_args" | \
-                        cut -c 1-$MAX_COMMAND_LINE_LENGTH)
+                        cut -c 1-$UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH)
 
-  if [[ ${#pretty_command_line} -ge $MAX_COMMAND_LINE_LENGTH ]]; then
+  if [[ ${#pretty_command_line} -ge $UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH ]]; then
     pretty_command_line="$pretty_command_line..."
   fi
 
