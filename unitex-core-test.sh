@@ -534,7 +534,7 @@ process_command_line() {
             esac
             UNITEX_TEST_DIFF_OUTPUT_FILES=$OPTARG
             ;;
-        w)  if [[ $OPTARG =~ ^[\-0-9]+$ ]] && (( $OPTARG > 0)); then
+        w)  if [[ $OPTARG =~ ^[0-9]+$ ]] && (( OPTARG > 0)); then
               UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH=$OPTARG
             else
               echo "./$UNITEX_TEST_SCRIPT_NAME: -w bad value. Valid values are n > 0"
@@ -719,7 +719,7 @@ exec_logged_command() {
 
   pretty_command_name=$(basename "$command_name")
   pretty_command_line=$($UNITEX_TEST_TOOL_PRINTF "$pretty_command_name $pretty_command_args" | \
-                        cut -c 1-$UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH)
+                        cut -c 1-"$UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH")
 
   if [[ ${#pretty_command_line} -ge $UNITEX_TEST_EXECUTION_LOG_MESSAGE_WIDTH ]]; then
     pretty_command_line="$pretty_command_line..."
