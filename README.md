@@ -50,6 +50,11 @@ Then, set the `UNITEX_BIN` environment variable:
                 1 print if error
                 2 always print
                 default=0
+      -d n    : if /dest folder is available, diff original and result files
+                0 never diff
+                1 diff if RunLog exists with warning
+                2 diff if RunLog exists with error
+                default=0
       -v n    : manually set the verbosity level 0...7
                 0 (%%) [debug]       debug message
                 1 (II) [info]rmation purely informational message
