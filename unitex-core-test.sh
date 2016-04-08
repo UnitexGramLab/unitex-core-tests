@@ -814,8 +814,6 @@ unitex_tests_run() {
     while read -r i ; do
       log_debug "Running" "$i"
       UNITEX_TEST_CURRENT_TEST_NAME=$(basename "$i")
-      # .log/foo.rtmp
-      UNITEX_TEST_TMP_ULP_DIR="$UNITEX_TEST_LOG_WORKSPACE/${UNITEX_TEST_CURRENT_TEST_NAME%$UNITEX_TEST_ULP_EXTENSION}.rtmp"
       # .log/foo.orig
       UNITEX_TEST_ORIG_ULP_DIR="$UNITEX_TEST_LOG_WORKSPACE/${UNITEX_TEST_CURRENT_TEST_NAME%$UNITEX_TEST_ULP_EXTENSION}.orig"
       # setup -r parameter to save the resulting ulp
@@ -835,7 +833,7 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                     \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"   \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"  \
-                          -d "$UNITEX_TEST_TMP_ULP_DIR"                       \
+                          -d tempdir                                          \
                           --clean "$UNITEX_TEST_RESULT_ULP_PARAM"             \
                           || {
                             # save return code
@@ -859,7 +857,7 @@ unitex_tests_run() {
         if [[ ( ( $UNITEX_TEST_DIFF_OUTPUT_FILES -ge 1 ) && ( $RUNLOG_EXIT_STATUS -ge $UNITEX_TEST_RUNLOG_WARNING_CODE ) )       ||\
               ( ( $UNITEX_TEST_DIFF_OUTPUT_FILES -ge 2 ) && ( $RUNLOG_EXIT_STATUS -eq $UNITEX_TEST_RUNLOG_COMPARE_ERROR_CODE ) ) ]]; then
           # only if the input log has a dest/ folder
-          unzip -q "$i"                           "dest/*" -d "$UNITEX_TEST_ORIG_ULP_DIR" > /dev/null 2>&1 && {
+          unzip -q "$i"                           "dest/*" -d "$UNITEX_TEST_ORIG_ULP_DIR"      > /dev/null 2>&1 && {
             # list the original files to compare
             UNITEX_TEXT_ORIG_FILES="$(find -L   "$UNITEX_TEST_ORIG_ULP_DIR"      \
                                       -not -name ".*"                            \
@@ -867,7 +865,7 @@ unitex_tests_run() {
                                            -name "*"                             \
                                            -type f -print)"
             # decompress the result files
-            unzip -q "$UNITEX_TEST_RESULT_ULP_NAME" "dest/*" -d "$UNITEX_TEST_RESULT_ULP_DIR"
+            unzip -q "$UNITEX_TEST_RESULT_ULP_NAME" "dest/*" -d "$UNITEX_TEST_RESULT_ULP_DIR"  > /dev/null 2>&1
             # compare original vs result files
             while read -r filename ; do
               UNITEX_TEST_ULP_ORIG_FILE="$filename"
@@ -917,7 +915,6 @@ unitex_tests_run() {
     while read -r i ; do
       log_debug "Running valgrind" "$i"
       UNITEX_TEST_CURRENT_TEST_NAME=$(basename "$i")
-      UNITEX_TEST_TMP_ULP_DIR="$UNITEX_TEST_LOG_WORKSPACE/${UNITEX_TEST_CURRENT_TEST_NAME%$UNITEX_TEST_ULP_EXTENSION}.mtmp"
 
       VALGRIND_LOG_NAME=$(basename "$i" | sed -e 's/[^A-Za-z0-9_-]/_/g')
       VALGRIND_LOG_FULLNAME="$UNITEX_TEST_LOG_WORKSPACE/valgrind.$VALGRIND_LOG_NAME$UNITEX_TEST_LOG_FILE_EXT"
@@ -935,7 +932,7 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                      \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"    \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"   \
-                          -d "$UNITEX_TEST_TMP_ULP_DIR"                        \
+                          -d tempdir                                           \
                           --clean                                              \
                           --cleanlog || {
                             VALGRIND_EXIT_STATUS=$?
