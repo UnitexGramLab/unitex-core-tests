@@ -52,8 +52,8 @@ Then, set the `UNITEX_BIN` environment variable:
                 default=0
       -d n    : if /dest folder is available, diff original and result files
                 0 never diff
-                1 diff if RunLog exists with warning
-                2 diff if RunLog exists with error
+                1 diff if RunLog exits with warning(79)
+                2 diff if RunLog exits with error(80)
                 default=0
       -w n    : width of the log message when executing commands
                 default=119
