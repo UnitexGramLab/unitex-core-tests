@@ -12,14 +12,20 @@ compilation. These tests should be run by the contributors before send a pull-re
 
 ## Dependencies
 
-1. To run a single `ulp` test, you don't need to use `unitex-core-test.sh`,
-   you can simple type e.g. `UnitexToolLogger RunLog Compress/Compress_bin2.ulp`
-   on the command line. However, if you are planning to run multiple tests on a
-   regular basis, including memory error detection tests, the best approach is
-   to continue reading and use `unitex-core-test.sh`
+1. Make sure you have already a `UnitexToolLogger` binary built including debug 
+   symbols with no optimization,  if not follow the instructions on the [Unitex Core][unitex-core]
+   to compile it
 
-1. Make sure you have already a `UnitexToolLogger` binary built including debug symbols with no optimization, 
-   if not follow the instructions on the [Unitex Core][unitex-core] to compile it
+1. To run a single `ulp` test, you don't need to use the `unitex-core-test.sh`
+   script, you can simple type on the command line, e.g.
+
+   ```
+   UnitexToolLogger RunLog Compress/Compress_bin2.ulp
+   ```
+
+   However, if you are planning to run multiple tests on a regular basis,
+   including memory error detection tests, the recommended approach is to
+   continue reading and use `unitex-core-test.sh`
 
 1. `Bash` v4.2.0 is the minimum version required to run `unitex-core-test.sh`.
     Type `bash --version` to check your installed version.
