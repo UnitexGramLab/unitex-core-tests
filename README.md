@@ -20,7 +20,7 @@ compilation. These tests should be run by the contributors before send a pull-re
     To install bash on Windows, see the `MSYS2` package available [here](https://sourceforge.net/projects/msys2)
 
 1. GNU `awk` >= v3.0 is also required. Type `gawk --version` to check your installed version.
-   To install `awk` on OS X through [Homebrew](brew.sh), type `brew install gawk`
+   To install `gawk` on OS X through [Homebrew](brew.sh), type `brew install gawk`
    
 1. To detect memory errors, you will need the [Valgrind](http://valgrind.org) suite of tools installed on your system:
 
