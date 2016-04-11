@@ -167,6 +167,30 @@ echo () (
   $UNITEX_TEST_TOOL_PRINTF "$fmt$end" "$*"
 )
 # =============================================================================
+# Portable readlink -f
+# @source http://stackoverflow.com/a/1116890/2042871
+# =============================================================================
+readlinkf() {
+  TARGET_FILE="$1"
+
+  cd "$(dirname "$TARGET_FILE")"
+  TARGET_FILE=$(basename "$TARGET_FILE")
+
+  # Iterate down a (possible) chain of symlinks
+  while [ -L "$TARGET_FILE" ]
+  do
+      TARGET_FILE=$(readlink "$TARGET_FILE")
+      cd "$(dirname "$TARGET_FILE")"
+      TARGET_FILE=$(basename "$TARGET_FILE")
+  done
+
+  # Compute the canonicalized name by finding the physical path 
+  # for the directory we're in and appending the target file.
+  PHYS_DIR=$(pwd -P)
+  RESULT="$PHYS_DIR/$TARGET_FILE"
+  printf "%s" "$RESULT"
+}
+# =============================================================================
 # check bash version
 # ATTENTION NEVER USE LOG FUNCTIONS FROM HERE !
 check_bash_version() {
@@ -476,7 +500,7 @@ create_temporal_directory() {
   }
 
   # normalize path
-  my_temporal_directory="$(readlink -f "$my_temporal_directory")"
+  my_temporal_directory="$(readlinkf "$my_temporal_directory")"
 
   # shellcheck disable=SC2140
   eval "$__output_variable"="'$my_temporal_directory'"
@@ -567,7 +591,7 @@ process_command_line() {
 
   # if exists, the last argument is a directory or a .ulp file
   if [ $# -eq 1 ]; then
-    UNITEX_TEST_TARGET="$(readlink -f "$1")"
+    UNITEX_TEST_TARGET="$(readlinkf "$1")"
   fi
 
   if   [ -d "$UNITEX_TEST_TARGET" ]; then
@@ -610,7 +634,7 @@ process_command_line() {
   fi
 
   # UNITEX_TEST_TOOL_BIN
-  UNITEX_TEST_TOOL_BIN="$(readlink -f "$UNITEX_TEST_TOOL_BIN")"
+  UNITEX_TEST_TOOL_BIN="$(readlinkf "$UNITEX_TEST_TOOL_BIN")"
 
   if [ "$UNITEX_TEST_MEMORY_ERRORS" -eq 1 ]; then
     command -v "${UNITEX_TEST_TOOL_VALGRIND}" > /dev/null ||\
