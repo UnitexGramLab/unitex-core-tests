@@ -361,7 +361,7 @@ notify_elapsed_time() {
   TIMESTAMP_FINISH_A=$(date +'%F %T %z')
   END_SECONDS=$(date +%s)
   DIFF_SECONDS=$(( END_SECONDS - START_SECONDS ))
-  TOTAL_ELAPSED_TIME=$(echo -n $DIFF_SECONDS | awk '{print strftime("%H:%M:%S", $1,1)}')
+  TOTAL_ELAPSED_TIME=$(echo -n $DIFF_SECONDS | gawk '{print strftime("%H:%M:%S", $1,1)}')
 
   # notify that the work was done
   log_info "Overall elapsed time" "$TOTAL_ELAPSED_TIME"
@@ -774,7 +774,7 @@ exec_logged_command() {
   # elapsed time
   COMMAND_END_SECONDS=$(date +%s)
   COMMAND_DIFF_SECONDS=$(( COMMAND_END_SECONDS - COMMAND_START_SECONDS ))
-  COMMAND_ELAPSED_TIME=$($UNITEX_TEST_TOOL_PRINTF $COMMAND_DIFF_SECONDS | awk '{print strftime("%H:%M:%S", $1,1)}')
+  COMMAND_ELAPSED_TIME=$($UNITEX_TEST_TOOL_PRINTF $COMMAND_DIFF_SECONDS | gawk '{print strftime("%H:%M:%S", $1,1)}')
 
   # Increment command execution counter
   (( UNITEX_TEST_COMMAND_EXECUTION_COUNT++ ))
