@@ -13,7 +13,14 @@ compilation. These tests should be run by the contributors before send a pull-re
 ## Dependencies
 
 1. Make sure you have already a `UnitexToolLogger` binary built including debug symbols with no optimization, 
-   if not follow the  instructions on the [Unitex Core][unitex-core] to compile it.
+   if not follow the instructions on the [Unitex Core][unitex-core] to compile it
+
+1. `Bash` v4.2.0 is the minimum version required to run `unitex-core-test.sh`.
+    Type `bash --version` to check your installed version.
+    To install bash on Windows, see the `MSYS2` package available [here](https://sourceforge.net/projects/msys2)
+
+1. GNU `awk` >= v3.0 is also required. Type `gawk --version` to check your installed version.
+   To install `awk` on OS X through [Homebrew](brew.sh), type `brew install gawk`
    
 1. To detect memory errors, you will need the [Valgrind](http://valgrind.org) suite of tools installed on your system:
 
@@ -21,6 +28,7 @@ compilation. These tests should be run by the contributors before send a pull-re
   - On Debian/Ubuntu, use `apt-get install valgrind`
   - On Fedora/RHEL, use `yum install valgrind `
   - To install `valgrind` from sources check [here](http://valgrind.org/docs/manual/dist.install.html)
+  - Currently, there is not a `valgrind` port for Windows
  
 ## Getting Started
 
