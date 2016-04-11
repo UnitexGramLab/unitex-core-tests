@@ -19,9 +19,9 @@ compilation. These tests should be run by the contributors before send a pull-re
 1. To run a single `ulp` test, you don't need to use the `unitex-core-test.sh`
    script, you can simple type on the command line, e.g.
 
- ```
- UnitexToolLogger RunLog Compress/Compress_bin2.ulp
- ```
+   ```
+   UnitexToolLogger RunLog Compress/Compress_bin2.ulp
+   ```
 
    However, if you are planning to run multiple tests on a regular basis,
    including memory error detection tests, the recommended approach is to
