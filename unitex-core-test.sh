@@ -468,9 +468,11 @@ create_temporal_directory() {
   fi
 
   local  my_temporal_directory
-  my_temporal_directory=$(mktemp -d --tmpdir="$__tmpdir"       \
-       "uct"XXXXX) || {
-        die_with_critical_error "Build error" "Failed to create a temporal directory in $my_temporal_directory";
+  my_temporal_directory=$(mktemp -d --tmpdir="$__tmpdir"  "uct"XXXXX 2>/dev/null) || {
+    # workaround for OS X @see http://unix.stackexchange.com/a/84980
+    my_temporal_directory=$(mktemp -d -t 'uct') || {
+      die_with_critical_error "Build error" "Failed to create a temporal directory in $my_temporal_directory";
+    }
   }
 
   # normalize path
