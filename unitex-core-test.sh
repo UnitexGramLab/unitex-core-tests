@@ -173,15 +173,22 @@ echo () (
 readlinkf() {
   TARGET_FILE="$1"
 
-  cd "$(dirname "$TARGET_FILE")"
+  cd "$(dirname "$TARGET_FILE")" || {
+    # @see https://github.com/koalaman/shellcheck/wiki/SC2164
+    printf "%s" "$1" && return
+  }
+
   TARGET_FILE=$(basename "$TARGET_FILE")
 
   # Iterate down a (possible) chain of symlinks
   while [ -L "$TARGET_FILE" ]
   do
-      TARGET_FILE=$(readlink "$TARGET_FILE")
-      cd "$(dirname "$TARGET_FILE")"
-      TARGET_FILE=$(basename "$TARGET_FILE")
+    TARGET_FILE=$(readlink "$TARGET_FILE")
+    cd "$(dirname "$TARGET_FILE")"  || {
+      # @see https://github.com/koalaman/shellcheck/wiki/SC2164
+      printf "%s" "$1" && return
+    }
+    TARGET_FILE=$(basename "$TARGET_FILE")
   done
 
   # Compute the canonicalized name by finding the physical path 
@@ -347,10 +354,10 @@ pop_directory() {
 notify_fail_log_level_count() {
   for i in "${!UNITEX_TEST_LOG_LEVEL_COUNTER[@]}"; do
     # shellcheck disable=SC2086
-    if [ $UNITEX_TEST_VERBOSITY -eq 0 -a $i -le 7 ]; then
+    if [ $UNITEX_TEST_VERBOSITY -eq 0 ] && [ $i -le 7 ]; then
       log_debug "${UNITEX_TEST_LOG_LEVEL_NAME[$i]} messages" \
                 "${UNITEX_TEST_LOG_LEVEL_COUNTER[$i]}"
-    elif [ $i -ge 3  -a $i -le 7 ]; then
+    elif [ $i -ge 3 ] && [ $i -le 7 ]; then
       if [ ${UNITEX_TEST_LOG_LEVEL_COUNTER[$i]} -ge 1 ]; then
         log_info "${UNITEX_TEST_LOG_LEVEL_NAME[$i]} messages" \
                  "${UNITEX_TEST_LOG_LEVEL_COUNTER[$i]}"
@@ -385,7 +392,7 @@ count_issues_until_now() {
   # 3=Message Error and 7=Message Panic
   for i in "${!UNITEX_TEST_LOG_LEVEL_COUNTER[@]}"; do
     # shellcheck disable=SC2086
-    if [ $i -ge 3 -a $i -le 7 ]; then
+    if [ $i -ge 3 ] && [ $i -le 7 ]; then
       # shellcheck disable=SC2086
       if [ ${UNITEX_TEST_LOG_LEVEL_COUNTER[$i]} -ge 1 ]; then
         issues_count=$(( issues_count + UNITEX_TEST_LOG_LEVEL_COUNTER[i] ))
@@ -416,7 +423,7 @@ notify_finish() {
     push_directory "$UNITEX_TEST_LOG_WORKSPACE"
     {
       find "$UNITEX_TEST_LOG_WORKSPACE" -size 0 | \
-           while read f; do rm -f "$f" ; done
+           while read -r f; do rm -f "$f" ; done
     } & wait
     pop_directory
   fi
@@ -458,7 +465,7 @@ die_with_critical_error() {
 # log_[level] "message" "description"
 # 1:LEVEL, 2:ALIAS, 3:MESSAGE, 4:DESCRIPTION; 5: TEST STATUS; 6: COLOR
 log() {
-  if [ "$1" -ge $UNITEX_TEST_VERBOSITY -a "$1" -le 7 ]; then
+  if [ "$1" -ge $UNITEX_TEST_VERBOSITY ] && [ "$1" -le 7 ]; then
     {
       # Increment log level counter
       (( UNITEX_TEST_LOG_LEVEL_COUNTER[$1]++ ))
@@ -467,7 +474,7 @@ log() {
       (( UNITEX_TEST_LOG_MESSAGE_COUNT++ ))
 
       # if test status is empty print the number of the message
-      if [ ${#5} -eq 0 -a "$3" == "Executing" ]; then
+      if [ ${#5} -eq 0 ] && [ "$3" == "Executing" ]; then
         UNITEX_TEST_STATUS=$($UNITEX_TEST_TOOL_PRINTF "%0.4d" "$UNITEX_TEST_LOG_MESSAGE_COUNT")
       else
         UNITEX_TEST_STATUS="$5"
@@ -681,8 +688,8 @@ redirect_stdout() {
 
   if [ "$UNITEX_TEST_CURRENT_STDOUT" != \
        "$REDIRECT_TO_PARTIALNAME$UNITEX_TEST_LOG_FILE_EXT" ];then
-    if [ -e "$REDIRECT_TO_PARTIALNAME$UNITEX_TEST_LOG_FILE_EXT" -a \
-         -s "$REDIRECT_TO_PARTIALNAME$UNITEX_TEST_LOG_FILE_EXT" ] ; then
+    if [ -e "$REDIRECT_TO_PARTIALNAME$UNITEX_TEST_LOG_FILE_EXT" ] && \
+       [ -s "$REDIRECT_TO_PARTIALNAME$UNITEX_TEST_LOG_FILE_EXT" ] ; then
         FILENAME_SUFFIX_COUNTER=1
         while [[ -e $REDIRECT_TO_PARTIALNAME.$FILENAME_SUFFIX_COUNTER$UNITEX_TEST_LOG_FILE_EXT ]] ; do
             let FILENAME_SUFFIX_COUNTER++
@@ -946,8 +953,8 @@ unitex_tests_run() {
   fi  # if [ "$UNITEX_TEST_NON_REGRESSION" -eq 1 ]; then
 
   # memcheck + non-regression tests
-  if [ $UNITEX_TEST_HAS_ERRORS      -eq 0 -a \
-       "$UNITEX_TEST_MEMORY_ERRORS" -eq 1 ]; then
+  if [ $UNITEX_TEST_HAS_ERRORS      -eq 0 ] && \
+     [ "$UNITEX_TEST_MEMORY_ERRORS" -eq 1 ]; then
     log_info "Running Valgrind" "Preparing to replay all ULPs files using Valgrind"
     while read -r i ; do
       log_debug "Running valgrind" "$i"
@@ -999,8 +1006,8 @@ unitex_tests_run() {
       fi
     done < <(echo "$UNITEX_TEST_FILES")  # for i in "$UNITEX_TEST_TARGET"
 
-    if [ -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" -a \
-         -s "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" ]; then
+    if [ -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" ] && \
+       [ -s "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME" ]; then
       log_warn "Regressions detected" \
                "Some regression tests did not complete successfully, see $UNITEX_TEST_LOG_RELATIVE_WORKSPACE/$UNITEXTOOLLOGGER_ERROR_SUMMARY_FILENAME for more details"
     else
