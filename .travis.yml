@@ -53,6 +53,11 @@ matrix:
       compiler: "gcc"
       env: CXX=g++-4.8
       addons: *gcc48
+    - os: osx
+      osx_image: xcode6.4
+      compiler: clang
+  allow_failures:
+    - os: osx
 
 notifications:
   email:
