@@ -28,16 +28,24 @@ compilation. These tests should be run by the contributors before send a pull-re
    continue reading and use `unitex-core-test.sh`
 
 1. `Bash` v4.2.0 is the minimum version required to run `unitex-core-test.sh`.
-    Type `bash --version` to check your installed version.
-    To install bash on Windows, see the `MSYS2` package available [here](https://sourceforge.net/projects/msys2)
+    Type `bash --version` to check your installed version. To upgrade Bash:
+    
+  - On OS-X, use `brew update` and the `brew install bash`
+  - On Debian/Ubuntu, use `apt-get update` and then `apt-get install --only-upgrade bash`
+  - On Fedora/RHEL, use `yum -y install bash`
+  - On Windows, see the `MSYS2` package available [here](https://sourceforge.net/projects/msys2)
+
+   If you are not running as root, prepend `sudo` to each command
    
 1. To detect memory errors, you will need the [Valgrind](http://valgrind.org) suite of tools installed on your system:
 
   - On OS-X, use `brew install --HEAD valgrind`
   - On Debian/Ubuntu, use `apt-get install valgrind`
-  - On Fedora/RHEL, use `yum install valgrind `
+  - On Fedora/RHEL, use `yum install valgrind`
   - To install `valgrind` from sources check [here](http://valgrind.org/docs/manual/dist.install.html)
   - Currently, there is not a `valgrind` port for Windows
+
+   If you are not running as root, prepend `sudo` to each command  
  
 ## Getting Started
 
