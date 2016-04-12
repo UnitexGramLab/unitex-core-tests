@@ -83,4 +83,4 @@ install:
 # overwrite the default build step
 script:
   - "./shellcheck-check.sh"
-  - "./unitex-core-test.sh -p1"
+  - "./unitex-core-test.sh -w80 -p1"
