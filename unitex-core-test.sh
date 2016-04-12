@@ -29,7 +29,7 @@
 # seconds since 1970-01-01 00:00:00 UTC
 START_SECONDS=$(date +%s)
 # Start date timestamp e.g. Fri Mar 22 00:10:29 CET 2013
-TIMESTAMP_START_C="$(date -d now)"
+TIMESTAMP_START_C="$(date +'%F %T %z')"
 # =============================================================================
 # Constants
 # =============================================================================
@@ -752,7 +752,7 @@ exec_logged_command() {
   fi
 
   COMMAND_START_SECONDS=$(date +%s)
-  COMMAND_TIMESTAMP_START_C="$(date -d now)"
+  COMMAND_TIMESTAMP_START_C="$(date +'%F %T %z')"
 
   # command logging header
   echo "# Command Logging $COMMAND_TIMESTAMP_START_C"
