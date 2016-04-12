@@ -5,7 +5,8 @@ set -eo pipefail
 
 main() {
   if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-    brew install shellcheck
+    brew update
+    brew install bash shellcheck
   else
     local filename="shellcheck_0.3.7-5_amd64.deb"
     wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/$filename"
