@@ -2,9 +2,9 @@
 
 > [Unitex/GramLab][unitex] is an open source, cross-platform, multilingual, lexicon- and grammar-based corpus processing suite
 
-This repository contains non-regression and memory error detection tests which are
-run after a commit or before a nightly build release to check the [Unitex Core][unitex-core]
-compilation. These tests should be run by the contributors before send a pull-request.
+This repository contains the [Unitex Core][unitex-core] non-regression and memory error 
+detection tests which are run after a commit or before release a nightly build. These tests 
+should be also run by the contributors before send a pull-request.
 
 <p align="center">
   <img src="http://www-igm.univ-mlv.fr/~unitex/img/unitex-core-test.png" width="50%" height="50%" alt="Unitex Core Tests"/>
