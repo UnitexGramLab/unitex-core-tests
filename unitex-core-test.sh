@@ -240,6 +240,7 @@ setup_script_traps() {
   for script_signal in "${SCRIPT_SIGNAL_LIST[@]}"
   do
     # shellcheck disable=SC2064
+    # shellcheck disable=SC2086
     trap "die_with_critical_error \"Caught signal\" \"A $script_signal signal was received at line \$LINENO\"" $script_signal
   done
 }
