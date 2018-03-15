@@ -6,11 +6,11 @@ set -eo pipefail
 [[ "${DEBUG:-}" ]] && set -x
 
 success() {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] Linting %s...\n" "$1"
+  printf "\\r\\033[2K  [ \\033[00;32mOK\\033[0m ] Linting %s...\\n" "$1"
 }
 
 fail() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] Linting %s...\n" "$1"
+  printf "\\r\\033[2K  [\\033[0;31mFAIL\\033[0m] Linting %s...\\n" "$1"
   exit 1
 }
 
@@ -31,7 +31,7 @@ find_prunes() {
 }
 
 find_cmd() {
-  echo "find . -type f -and \( -perm +111 -or -name '*.sh' \) $(find_prunes)"
+  echo "find . -type f -and \( -perm /111 -or -name '*.sh' \) $(find_prunes)"
 }
 
 check_all_executables() {
@@ -44,6 +44,7 @@ check_all_executables() {
     [[ "$script" =~ ./makeself/* ]]       && continue
     [[ "$script" =~ ./unitex-core/.* ]] && continue 
     [[ "$script" =~ ^./mo$ ]]             && continue
+    [[ "$script" =~ ^./shellcheck-check.* ]] && continue
     check "$script"
   done
 }
