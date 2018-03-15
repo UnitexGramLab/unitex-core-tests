@@ -49,4 +49,6 @@ check_all_executables() {
   done
 }
 
-check_all_executables
+if [[ $TRAVIS_OS_NAME != 'osx' ]]; then
+  check_all_executables
+fi
