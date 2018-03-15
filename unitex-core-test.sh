@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1117,SC2206,SC2164
 # =============================================================================
 # Unitex/GramLab Core Integration Tests
 # https://github.com/UnitexGramLab/unitex-core-tests
