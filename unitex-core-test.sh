@@ -4,7 +4,7 @@
 # Unitex/GramLab Core Integration Tests
 # https://github.com/UnitexGramLab/unitex-core-tests
 # =============================================================================
-# Copyright (C) 2019 Université Paris-Est Marne-la-Vallée <unitex-devel@univ-mlv.fr>
+# Copyright (C) 2021 Université Paris-Est Marne-la-Vallée <unitex-devel@univ-mlv.fr>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
