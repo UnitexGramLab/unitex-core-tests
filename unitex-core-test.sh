@@ -206,7 +206,7 @@ convert_to_hms() {
  ((h=${1}/3600))
  ((m=(${1}%3600)/60))
  ((s=${1}%60))
- printf "%02d:%02d:%02d" $h $m $s
+ printf "%02d:%02d:%02d" "$h" "$m" "$s"
 }
 # =============================================================================
 # check bash version
@@ -814,6 +814,7 @@ exec_logged_command() {
   echo "# Elapsed time  : $COMMAND_ELAPSED_TIME"
 
   # restore stdout and stderr
+  # shellcheck disable=SC2236
   if [ ! -z "$UNITEX_TEST_CURRENT_STAGE" ]; then
     # All untraced execution commands, i.e. not running thorough
     # exec_logged_command call, will be kept in an .untraced.log file
