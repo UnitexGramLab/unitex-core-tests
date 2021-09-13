@@ -6,8 +6,7 @@ set -eo pipefail
 main() {
   if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     export HOMEBREW_LOGS=/tmp
-    export HOMEBREW_NO_AUTO_UPDATE=yes
-    brew update-reset && brew install --force-bottle bash
+    brew update-reset >/dev/null && brew install --force-bottle bash
   else
     local filename="shellcheck_0.4.4-4_amd64.deb"
     wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/$filename"
