@@ -1,4 +1,4 @@
-# Unitex/GramLab Core Integration Tests [![Build Status](https://travis-ci.org/UnitexGramLab/unitex-core-tests.svg?branch=master)](https://travis-ci.org/UnitexGramLab/unitex-core-tests)
+# Unitex/GramLab Core Integration Tests [![Build Status](https://api.travis-ci.com/UnitexGramLab/unitex-core-tests.svg?branch=master)](https://app.travis-ci.com/UnitexGramLab/unitex-core-tests)
 
 > [Unitex/GramLab][unitex] is an open source, cross-platform, multilingual, lexicon- and grammar-based corpus processing suite
 
