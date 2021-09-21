@@ -1,4 +1,4 @@
-# add by martinec
+# added by martinec
 # =============================================================================
 # based on:
 # https://github.com/mapbox/protozero/blob/master/.travis.yml
@@ -68,7 +68,7 @@ before_install:
  # https://github.com/travis-ci/travis-ci/issues/4682
  # https://github.com/travis-ci/docs-travis-ci-com/commit/fbca7ce4
  - test -n $CC && unset CC 
- - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_VERSION_GIT_COMMIT_HASH=$(git describe --always HEAD) && mkdir -p bin && src/build && make ADDITIONAL_CFLAG+=-DUNITEX_CORE_VERSION_GIT_COMMIT_HASH=${UNITEX_CORE_VERSION_GIT_COMMIT_HASH} 64BITS=yes DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd ../.. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
+ - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_VERSION_GIT_COMMIT_HASH=$(git describe --always HEAD) && mkdir -p bin && cd src/build && make ADDITIONAL_CFLAG+=-DUNITEX_CORE_VERSION_GIT_COMMIT_HASH=${UNITEX_CORE_VERSION_GIT_COMMIT_HASH} 64BITS=yes DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd ../.. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
  - echo ${UNITEX_BIN}
  - echo ${UNITEX_CORE_VERSION_GIT_COMMIT_HASH}
 
