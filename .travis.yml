@@ -16,8 +16,12 @@
 # language: instructs travis what compilers && environment to set up in build matrix
 language: cpp
 
-# sudo: false instructs Travis to build our project in a docker VM (faster)
-sudo: required
+# the value of the $TRAVIS_OS_NAME variable is set to linux or osx according to
+# the operating system a particular build is running on
+os: linux
+
+# route builds to Ubuntu Xenial 16.04
+dist: xenial          # or bionic | xenial | trusty | precise with xenial as default
 
 # only available on private builds
 cache:
@@ -29,32 +33,23 @@ git:
 
 # Save common build configurations as shortcuts, so we can reference them later.
 addons_shortcuts:
-  addons_clang35: &clang35
+  addons_gcc5:    &gcc5
     apt:
-      sources: [ 'ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.5' ]
-      packages: [ 'clang-3.5', 'cmake', 'cppcheck', 'valgrind' ]
-  addons_gcc48: &gcc48
-    apt:
-      sources: [ 'ubuntu-toolchain-r-test' ]
-      packages: [ 'g++-4.8', 'gcc-4.8', 'cmake', 'cppcheck', 'valgrind' ]
+      sources:    [ 'ubuntu-toolchain-r-test' ]
+      packages:   [ 'g++-5', 'gcc-5', 'cmake', 'cppcheck', 'valgrind' ]
 
-matrix:
+jobs:
   # if a rows in the build matrix fails, set
   # the build to finish as soon as possible
   fast_finish: true
   include:
     - os: linux
-      dist: trusty
-      compiler: "clang"
-      env: CXX=clang++-3.5
-      addons: *clang35
-    - os: linux
-      dist: trusty
+      dist: xenial
       compiler: "gcc"
-      env: CXX=g++-4.8
-      addons: *gcc48
-    - os: osx
-      compiler: clang
+      env: CXX=g++-5
+      addons: *gcc5
+    #- os: osx
+      #compiler: clang
   allow_failures:
     - os: osx
 
@@ -68,12 +63,13 @@ notifications:
     secure: UvrwS8TG+pXKsgJGP2OouOpLGcf0ZsbgZzdUsGbfW+5WFl5/AZW6wxJg60jpHMgOcwoX74vvb0mpBOFNuV5Zck6ISBa3W4qSQeqmIJ+v7pzNNC1rEUGhictKX1Jo1MCRMN7Q0B+V5ZiWU6yVBljTo2PvhkeF27ethPyQpTyV3U88y45iX5mQP8+ZUaHdpBhxzN3x+9XzUTAV/ugrCrTJs315hXVhXpyaDFk4hE1nsRVCXyazX4JkHaCPau3hpdrtTF8Xpadu/u1MzaDFBZAgGUSvcV9rkJ6JpgyLlBFT/yyY7uqJ245LM4nfp/+SgS6p3eEEkbck+2x+dtS7OMSVGyZ4IwsWYU7TdAAnvy1u73TXCKkeYx6MbUEdI4wCJu5KUv8fJ4DJWsOc4RPCd36FGyNo8CfzJ4G8qaSaQr1U2xbPGPAebvrnEq2D/BgzY4/4BqHWBQCSctWCAfbehIPkjEy6JM+LDERJW85kTF5O4jUM0syyPmqWEsMfmZ6wQywQyGTA2BT4kTeDvS/ybiFqooOo03CF5K97S/ZdnOlXhFQLik3EVJwgq+k7rFkCXD/M63nwFdYV/59zBWy+xuFIUW8LDtZCssxZ9Wo8D3/PzPEb4nRECJ0Cmvs/tLKjw4ATrHrjKfxDyW55V6xFzg8DmZBhdQd+Puut8ZIoDRziGaI=
 
 before_install:
+ - if [ "$TRAVIS_OS_NAME" = "osx" ]; then export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin; fi
  # workaround for an issue related with the default export of the CC environment variable on Travis
  # https://github.com/travis-ci/travis-ci/issues/4682
  # https://github.com/travis-ci/docs-travis-ci-com/commit/fbca7ce4
  - test -n $CC && unset CC 
- - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_VERSION_GIT_COMMIT_HASH=$(git describe --always HEAD) && mkdir -p bin && cd build && make ADDITIONAL_CFLAG+=-DUNITEX_CORE_VERSION_GIT_COMMIT_HASH=${UNITEX_CORE_VERSION_GIT_COMMIT_HASH} DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd .. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
- - echo ${UNITEX_BIN} 
+ - git clone -b master --depth 1 https://github.com/UnitexGramLab/unitex-core && cd unitex-core && export UNITEX_CORE_VERSION_GIT_COMMIT_HASH=$(git describe --always HEAD) && mkdir -p bin && src/build && make ADDITIONAL_CFLAG+=-DUNITEX_CORE_VERSION_GIT_COMMIT_HASH=${UNITEX_CORE_VERSION_GIT_COMMIT_HASH} 64BITS=yes DEBUG=yes UNITEXTOOLLOGGERONLY=yes && cd ../.. && export UNITEX_BIN="$PWD/bin/UnitexToolLogger" && cd ..
+ - echo ${UNITEX_BIN}
  - echo ${UNITEX_CORE_VERSION_GIT_COMMIT_HASH}
 
 install:
