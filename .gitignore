@@ -13,6 +13,7 @@
 !*.ulp
 !*/
 !command_line_summary.log
+!unitex.supp
 
 # Excepting...
 *.rerun.ulp

@@ -130,6 +130,7 @@ UNITEX_TEST_PREVIOUS_STDOUT=/dev/stdout
 UNITEX_TEST_LOG_FILE_EXT=".log"
 UNITEX_TEST_ULP_EXTENSION=".ulp"
 UNITEX_TEST_TARGET="$UNITEX_TEST_SCRIPT_BASEDIR"
+UNITEX_TEST_SUPPRESSIONS_FILE="$UNITEX_TEST_SCRIPT_BASEDIR/unitex.supp"
 UNITEX_TEST_COMMAND_LINE_LOG_FILE=""
 # =============================================================================
 # Default params
@@ -970,6 +971,7 @@ unitex_tests_run() {
       VALGRIND_EXIT_STATUS=0
       exec_logged_command "$UNITEX_TEST_TOOL_VALGRIND"                         \
                           --tool=memcheck                                      \
+                          --suppressions=$UNITEX_TEST_SUPPRESSIONS_FILE        \
                           --error-exitcode=$UNITEX_TEST_MEMORY_ERROR_CODE      \
                           --leak-check=full                                    \
                           --vex-iropt-level=1                                  \
