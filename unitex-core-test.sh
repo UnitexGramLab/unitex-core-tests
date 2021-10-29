@@ -971,7 +971,7 @@ unitex_tests_run() {
       VALGRIND_EXIT_STATUS=0
       exec_logged_command "$UNITEX_TEST_TOOL_VALGRIND"                         \
                           --tool=memcheck                                      \
-                          --suppressions=$UNITEX_TEST_SUPPRESSIONS_FILE        \
+                          --suppressions="$UNITEX_TEST_SUPPRESSIONS_FILE"      \
                           --error-exitcode=$UNITEX_TEST_MEMORY_ERROR_CODE      \
                           --leak-check=full                                    \
                           --vex-iropt-level=1                                  \
