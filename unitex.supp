@@ -1,0 +1,111 @@
+# Valgrind suppression file for Unitex
+# Crafted by Cristian Martinez
+
+# -----------------------------------------------------------------------
+# This comes directly from LuaJIT 2.1 (lj.supp)
+# @see https://github.com/luvit/luajit-2.0/blob/master/src/lj.supp
+{
+   Optimized string compare
+   Memcheck:Addr4
+   fun:lj_str_cmp
+}
+{
+   Optimized string compare
+   Memcheck:Addr1
+   fun:lj_str_cmp
+}
+{
+   Optimized string compare
+   Memcheck:Addr4
+   fun:lj_str_new
+}
+{
+   Optimized string compare
+   Memcheck:Addr1
+   fun:lj_str_new
+}
+{
+   Optimized string compare
+   Memcheck:Cond
+   fun:lj_str_new
+}
+{
+   Optimized string compare
+   Memcheck:Addr4
+   fun:str_fastcmp
+}
+{
+   Optimized string compare
+   Memcheck:Addr1
+   fun:str_fastcmp
+}
+{
+   Optimized string compare
+   Memcheck:Cond
+   fun:str_fastcmp
+}
+
+# -----------------------------------------------------------------------
+# Add some Python suppressions as ELGs functions could execute python code
+# This is from CPython (valgrind-python.supp)
+# changes: _PyObject_Free => PyObject_Free, ...
+# @see https://github.com/python/cpython/blob/main/Misc/valgrind-python.supp
+{
+   ADDRESS_IN_RANGE/Invalid read of size 4
+   Memcheck:Addr4
+   fun:PyObject_Free
+}
+{
+   ADDRESS_IN_RANGE/Invalid read of size 4
+   Memcheck:Value4
+   fun:PyObject_Free
+}
+{
+   ADDRESS_IN_RANGE/Use of uninitialised value of size 8
+   Memcheck:Addr8
+   fun:PyObject_Free
+}
+{
+   ADDRESS_IN_RANGE/Use of uninitialised value of size 8
+   Memcheck:Value8
+   fun:PyObject_Free
+}
+{
+   ADDRESS_IN_RANGE/Conditional jump or move depends on uninitialised value
+   Memcheck:Cond
+   fun:PyObject_Free
+}
+{
+   ADDRESS_IN_RANGE/Invalid read of size 4
+   Memcheck:Addr4
+   fun:PyObject_Realloc
+}
+{
+   ADDRESS_IN_RANGE/Invalid read of size 4
+   Memcheck:Value4
+   fun:PyObject_Realloc
+}
+{
+   ADDRESS_IN_RANGE/Use of uninitialised value of size 8
+   Memcheck:Addr8
+   fun:PyObject_Realloc
+}
+{
+   ADDRESS_IN_RANGE/Use of uninitialised value of size 8
+   Memcheck:Value8
+   fun:PyObject_Realloc
+}
+{
+   ADDRESS_IN_RANGE/Conditional jump or move depends on uninitialised value
+   Memcheck:Cond
+   fun:PyObject_Realloc
+}
+# ----------------------------------------------------------------
+# This is to avoid is_dst strncmp invalid read
+# @see https://sourceforge.net/p/valgrind/mailman/valgrind-developers/?viewmonth=201909
+{
+   strncmp-hack4-64bit-addr-1
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+}
