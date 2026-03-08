@@ -881,7 +881,7 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                     \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"   \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"  \
-                          -d tempdir                                          \
+                          -d "$UNITEX_TEST_RUNLOG_WORKDIR"                                          \
                           --clean "$UNITEX_TEST_RESULT_ULP_PARAM"             \
                           || {
                             # save return code
@@ -981,7 +981,7 @@ unitex_tests_run() {
                           RunLog "\"$i\""                                      \
                           -s "$UNITEXTOOLLOGGER_EXECUTION_SUMMARY_FULLNAME"    \
                           -e "$UNITEXTOOLLOGGER_ERROR_SUMMARY_FULLNAME.once"   \
-                          -d tempdir                                           \
+                          -d "$UNITEX_TEST_RUNLOG_WORKDIR"                                           \
                           --clean                                              \
                           --cleanlog || {
                             VALGRIND_EXIT_STATUS=$?
@@ -1058,6 +1058,11 @@ create_temporal_workspace() {
   fi
   UNITEX_TEST_LOG_RELATIVE_WORKSPACE=$($UNITEX_TEST_TOOL_PRINTF "$UNITEX_TEST_LOG_WORKSPACE" |\
                                        sed -e "s|$UNITEX_TEST_SCRIPT_BASEDIR/||g" )
+  # Create a unique RunLog working directory (allows parallel test execution)
+  create_temporal_directory UNITEX_TEST_RUNLOG_WORKDIR "$UNITEX_TEST_SCRIPT_BASEDIR/$UNITEX_TEST_LOG_FILE_EXT"
+  if [ ! -d "$UNITEX_TEST_RUNLOG_WORKDIR" ]; then
+    die_with_critical_error "Unrecoverable error" "Error creating RunLog working directory"
+  fi
 }
 # =============================================================================
 # main
